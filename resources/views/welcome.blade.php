@@ -48,14 +48,20 @@
             </div>
           </li>
             @if (Route::has('login'))
-          <li>
+
             @auth
-                <a href="{{ url('/home') }}">Aplicación</a>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/home') }}">Aplicación</a>
+              </li>
             @else
-                <a href="{{ route('login') }}">Login</a>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('login') }}">Login</a>
+                </li>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Registro</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">Registro</a>
+                </li>
                 @endif
             @endauth
           </li>

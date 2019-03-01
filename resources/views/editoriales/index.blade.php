@@ -22,6 +22,7 @@
             <div class="box-body">
                     @include('editoriales.table')
             </div>
+            {{$editoriales->links()}}
         </div>
         <div class="text-center">
 

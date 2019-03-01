@@ -1,11 +1,11 @@
 <ul class="navbar-nav ml-auto">
   <li class="dropdown nav-item">
     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-      <i class="material-icons">apps</i> Libros
+      <i class="material-icons">apps</i> Menú
     </a>
     <div class="dropdown-menu dropdown-with-icons">
       <a href="{{route('libros.index')}}" class="dropdown-item">
-        <i class="material-icons">layers</i> todos los libros
+        <i class="material-icons">library_books</i> Libros
       </a>
       <a href="https://demos.creative-tim.com/material-kit/docs/2.1/getting-started/introduction.html" class="dropdown-item">
         <i class="material-icons">content_paste</i> con descuentos

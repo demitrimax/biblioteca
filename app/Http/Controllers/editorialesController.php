@@ -8,6 +8,7 @@ use App\Repositories\editorialesRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Alert;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -30,7 +31,7 @@ class editorialesController extends AppBaseController
     public function index(Request $request)
     {
         $this->editorialesRepository->pushCriteria(new RequestCriteria($request));
-        $editoriales = $this->editorialesRepository->all();
+        $editoriales = $this->editorialesRepository->paginate(10);
 
         return view('editoriales.index')
             ->with('editoriales', $editoriales);
@@ -60,6 +61,7 @@ class editorialesController extends AppBaseController
         $editoriales = $this->editorialesRepository->create($input);
 
         Flash::success('Editorial guardada correctamente.');
+        Alert::success('Editorial guardada correctamente.');
 
         return redirect(route('editoriales.index'));
     }
@@ -77,6 +79,7 @@ class editorialesController extends AppBaseController
 
         if (empty($editoriales)) {
             Flash::error('Editorial no encontrada');
+            Alert::error('Editorial no encontrada');
 
             return redirect(route('editoriales.index'));
         }
@@ -97,6 +100,7 @@ class editorialesController extends AppBaseController
 
         if (empty($editoriales)) {
             Flash::error('Editorial no encontrada.');
+            Alert::error('Editorial no encontrada.');
 
             return redirect(route('editoriales.index'));
         }
@@ -118,6 +122,7 @@ class editorialesController extends AppBaseController
 
         if (empty($editoriales)) {
             Flash::error('Editorial no encontrada.');
+            Alert::error('Editorial no encontrada.');
 
             return redirect(route('editoriales.index'));
         }
@@ -125,6 +130,7 @@ class editorialesController extends AppBaseController
         $editoriales = $this->editorialesRepository->update($request->all(), $id);
 
         Flash::success('Editorial actualizada correctamente.');
+        Alert::success('Editorial actualizada correctamente.');
 
         return redirect(route('editoriales.index'));
     }
@@ -142,6 +148,7 @@ class editorialesController extends AppBaseController
 
         if (empty($editoriales)) {
             Flash::error('Editorial no encontrada.');
+            Alert::error('Editorial no encontrada.');
 
             return redirect(route('editoriales.index'));
         }
@@ -149,6 +156,7 @@ class editorialesController extends AppBaseController
         $this->editorialesRepository->delete($id);
 
         Flash::success('Editorial eliminada correctamente.');
+        Alert::success('Editorial eliminada correctamente.');
 
         return redirect(route('editoriales.index'));
     }
