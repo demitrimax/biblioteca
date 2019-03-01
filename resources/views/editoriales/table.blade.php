@@ -1,16 +1,18 @@
-<table class="table table-responsive" id="editoriales-table">
+<table class="table" id="editoriales-table">
     <thead>
         <tr>
-            <th>Nombre</th>
-        <th>Facebook</th>
-        <th>Twitter</th>
-        <th>Website</th>
-        <th>Acciones</th>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Facebook</th>
+          <th>Twitter</th>
+          <th>Website</th>
+          <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-    @foreach($editoriales as $editoriales)
+    @foreach($editoriales as $key=>$editoriales)
         <tr>
+            <td>{!! $key+1 !!}</td>
             <td>{!! $editoriales->nombre !!}</td>
             <td>{!! $editoriales->facebook !!}</td>
             <td>{!! $editoriales->twitter !!}</td>
