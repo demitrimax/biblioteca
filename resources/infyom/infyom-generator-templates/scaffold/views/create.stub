@@ -1,26 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-@include('editoriales.pheader')
-
 <div class="main main-raised">
   <div class="container">
     <section class="content-header">
         <h1>
-            Alta de Editorial
+            $MODEL_NAME_HUMAN$
         </h1>
     </section>
     <div class="content">
         @include('adminlte-templates::common.errors')
-    <div class="row">
-              <div class="col-sm">
+      <div class="row">
+        <div class="col-sm">
 
-                    {!! Form::open(['route' => 'editoriales.store']) !!}
 
-                        @include('editoriales.fields')
+
+                    {!! Form::open(['route' => '$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.store']) !!}
+
+                        @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
 
                     {!! Form::close() !!}
-                  </div>
+
+            </div>
         </div>
     </div>
   </div>

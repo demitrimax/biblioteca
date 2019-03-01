@@ -33,40 +33,7 @@
         </button>
       </div>
       <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="dropdown nav-item">
-            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-              <i class="material-icons">apps</i> Libros
-            </a>
-            <div class="dropdown-menu dropdown-with-icons">
-              <a href="../index.html" class="dropdown-item">
-                <i class="material-icons">layers</i> todos los libros
-              </a>
-              <a href="https://demos.creative-tim.com/material-kit/docs/2.1/getting-started/introduction.html" class="dropdown-item">
-                <i class="material-icons">content_paste</i> con descuentos
-              </a>
-            </div>
-          </li>
-            @if (Route::has('login'))
-
-            @auth
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('/home') }}">Aplicación</a>
-              </li>
-            @else
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}">Login</a>
-                </li>
-
-                @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">Registro</a>
-                </li>
-                @endif
-            @endauth
-          </li>
-      @endif
-        </ul>
+        @include('layouts.menu')
       </div>
     </div>
   </nav>
