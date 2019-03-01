@@ -11,7 +11,7 @@
         <i class="material-icons">content_paste</i> con descuentos
       </a>
 
-      <a href="{!! route('editoriales.index') !!}" class="dropdown-item"><i class="fa fa-edit"></i><span>Editoriales</span></a>
+      <a href="{!! route('editoriales.index') !!}" class="dropdown-item"><i class="material-icons">collections_bookmark</i><span>Editoriales</span></a>
 
 
     </div>
