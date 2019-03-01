@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Biblioteca
+      @yield('title',config('app.name'))
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -15,11 +15,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="{{asset('materialkit/assets/css/material-kit.css?v=2.0.5')}}" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{asset('materialkit/assets/demo/demo.css')}}" rel="stylesheet" />
+
 </head>
 
-<body class="landing-page sidebar-collapse">
+<body class="@yield('body-class')">
   <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
@@ -47,80 +46,41 @@
               </a>
             </div>
           </li>
-            @if (Route::has('login'))
-          <li>
-            @auth
-                <a href="{{ url('/home') }}">Aplicación</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
+          @guest
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              </li>
+              @if (Route::has('register'))
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                  </li>
+              @endif
+          @else
+              <li class="nav-item dropdown">
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      {{ Auth::user()->name }} <span class="caret"></span>
+                  </a>
 
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Registro</a>
-                @endif
-            @endauth
-          </li>
-      @endif
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
+                  </div>
+              </li>
+          @endguest
         </ul>
       </div>
     </div>
   </nav>
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('materialkit/assets/img/Libros-a-tope.jpg')}}')">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1 class="title">Buscas tus libros aquí con nosotros!</h1>
-          <h4>Busca en nuestro acervo de libros el que necesitas, seguramente tenemos algo interesante para ti. Add here all the information that can make you or your product create the first impression.</h4>
-          <br>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
-            <i class="fa fa-play"></i> Watch video
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="main main-raised">
-    <div class="container">
-      <div class="section text-center">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto">
-            <h2 class="title">Nuestro Títulos</h2>
-            <h5 class="description">Aquí podras ver algunos de los titulos que tenemos para tí.</h5>
-          </div>
-        </div>
-        <div class="features">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="info">
-                <div class="icon icon-info">
-                  <i class="material-icons">chat</i>
-                </div>
-                <h4 class="info-title">Free Chat</h4>
-                <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="info">
-                <div class="icon icon-success">
-                  <i class="material-icons">verified_user</i>
-                </div>
-                <h4 class="info-title">Verified Users</h4>
-                <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="info">
-                <div class="icon icon-danger">
-                  <i class="material-icons">fingerprint</i>
-                </div>
-                <h4 class="info-title">Fingerprint</h4>
-                <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+
+      @yield('content')
   <footer class="footer footer-default">
     <div class="container">
       <nav class="float-left">
@@ -133,16 +93,6 @@
           <li>
             <a href="https://creative-tim.com/presentation">
               Conocenos
-            </a>
-          </li>
-          <li>
-            <a href="http://blog.creative-tim.com">
-              Ubicación
-            </a>
-          </li>
-          <li>
-            <a href="https://www.creative-tim.com/license">
-              Licenses
             </a>
           </li>
         </ul>
