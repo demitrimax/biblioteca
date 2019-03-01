@@ -64,6 +64,7 @@
       </div>
     </div>
   </footer>
+  @include('sweetalert::alert')`
   <!--   Core JS Files   -->
   <script src="{{asset('materialkit/assets/js/core/jquery.min.js')}}" type="text/javascript"></script>
   <script src="{{asset('materialkit/assets/js/core/popper.min.js')}}" type="text/javascript"></script>

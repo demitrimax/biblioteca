@@ -10,6 +10,10 @@
       <a href="https://demos.creative-tim.com/material-kit/docs/2.1/getting-started/introduction.html" class="dropdown-item">
         <i class="material-icons">content_paste</i> con descuentos
       </a>
+
+      <a href="{!! route('editoriales.index') !!}" class="dropdown-item"><i class="fa fa-edit"></i><span>Editoriales</span></a>
+
+
     </div>
   </li>
   @guest

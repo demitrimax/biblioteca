@@ -6,7 +6,7 @@
     <div class="container">
     <section class="content-header">
         <h1>
-            Libros
+            Alta de Libros
         </h1>
     </section>
     <div class="content">

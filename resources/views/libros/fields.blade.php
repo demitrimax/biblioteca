@@ -6,8 +6,8 @@
 
 <!-- Editorial Id Field -->
 <div class="form-group">
-    {!! Form::label('editorial_id', 'Editorial Id:') !!}
-    {!! Form::number('editorial_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('editorial_id', 'Editorial:') !!}
+    {!! Form::select('editorial_id', $editoriales, null, ['class' => 'form-control', 'placeholder'=>'Seleccione una editorial']) !!}
 </div>
 
 <!-- Autor Id Field -->

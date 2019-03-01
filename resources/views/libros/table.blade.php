@@ -2,9 +2,9 @@
     <thead>
         <tr>
         <th>Nombre</th>
-        <th>Editorial Id</th>
-        <th>Autor Id</th>
-        <th>Genero Id</th>
+        <th>Editorial</th>
+        <th>Autor</th>
+        <th>Genero</th>
         <th>Año</th>
         <th>Acciones</th>
         </tr>

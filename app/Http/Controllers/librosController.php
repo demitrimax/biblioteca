@@ -8,8 +8,10 @@ use App\Repositories\librosRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+Use Alert;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\editoriales;
 
 class librosController extends AppBaseController
 {
@@ -43,7 +45,8 @@ class librosController extends AppBaseController
      */
     public function create()
     {
-        return view('libros.create');
+        $editoriales = editoriales::pluck('nombre','id');
+        return view('libros.create')->with(compact('editoriales'));
     }
 
     /**
@@ -59,7 +62,8 @@ class librosController extends AppBaseController
 
         $libros = $this->librosRepository->create($input);
 
-        Flash::success('Libros saved successfully.');
+        Flash::success('Libro guardado correctamente.');
+        Alert::success('Libro guardado correctamente.');
 
         return redirect(route('libros.index'));
     }
@@ -76,7 +80,8 @@ class librosController extends AppBaseController
         $libros = $this->librosRepository->findWithoutFail($id);
 
         if (empty($libros)) {
-            Flash::error('Libros not found');
+            Flash::error('Libro no encontrado');
+            Alert::error('Libro no encontrado');
 
             return redirect(route('libros.index'));
         }
@@ -96,7 +101,8 @@ class librosController extends AppBaseController
         $libros = $this->librosRepository->findWithoutFail($id);
 
         if (empty($libros)) {
-            Flash::error('Libros not found');
+            Flash::error('Libro no encontrado');
+            Alert::error('Libro no encontrado');
 
             return redirect(route('libros.index'));
         }
@@ -117,14 +123,16 @@ class librosController extends AppBaseController
         $libros = $this->librosRepository->findWithoutFail($id);
 
         if (empty($libros)) {
-            Flash::error('Libros not found');
+          Flash::error('Libro no encontrado');
+          Alert::error('Libro no encontrado');
 
             return redirect(route('libros.index'));
         }
 
         $libros = $this->librosRepository->update($request->all(), $id);
 
-        Flash::success('Libros updated successfully.');
+        Flash::success('Libro actualizado correctamente.');
+        Alert::success('Libro actualizado correctamente.');
 
         return redirect(route('libros.index'));
     }
@@ -141,14 +149,16 @@ class librosController extends AppBaseController
         $libros = $this->librosRepository->findWithoutFail($id);
 
         if (empty($libros)) {
-            Flash::error('Libros not found');
+          Flash::error('Libro no encontrado');
+          Alert::error('Libro no encontrado');
 
             return redirect(route('libros.index'));
         }
 
         $this->librosRepository->delete($id);
 
-        Flash::success('Libros deleted successfully.');
+        Flash::success('Libro borrado correctamente.');
+        Alert::success('Libro borrado correctamente.');
 
         return redirect(route('libros.index'));
     }
