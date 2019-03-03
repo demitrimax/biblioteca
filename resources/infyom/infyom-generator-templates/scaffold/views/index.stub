@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="main main-raised">
+  <div class="section section-basic">
     <section class="content-header">
         <h1 class="pull-left">$MODEL_NAME_PLURAL_HUMAN$</h1>
         <h1 class="pull-right">
@@ -22,4 +24,6 @@
         $PAGINATE$
         </div>
     </div>
+  </div>
+</div>
 @endsection
