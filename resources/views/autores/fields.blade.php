@@ -1,14 +1,14 @@
 <!-- Nombre Field -->
 <div class="form-group">
     {!! Form::label('nombre', 'Nombre:') !!}
-    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nombre', null, ['class' => 'form-control', 'maxlength' => '50']) !!}
 </div>
 
 
 <!-- Nacionalidad Field -->
 <div class="form-group">
     {!! Form::label('nacionalidad', 'Nacionalidad:') !!}
-    {!! Form::text('nacionalidad', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nacionalidad', null, ['class' => 'form-control', 'maxlength' => '30']) !!}
 </div>
 
 
