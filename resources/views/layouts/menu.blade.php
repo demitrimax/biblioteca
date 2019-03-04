@@ -15,6 +15,8 @@
 
       <a href="{!! route('clientes.index') !!}" class="dropdown-item"><i class="material-icons">assignment_ind</i><span>Clientes</span></a>
 
+      <a href="{!! route('generos.index') !!}" class="dropdown-item"><i class="material-icons">tag_faces</i><span>Generos</span></a>
+
 
     </div>
   </li>
@@ -48,5 +50,8 @@
   @endguest
 </ul>
 <li class="{{ Request::is('clientes*') ? 'active' : '' }}">
+
+</li>
+<li class="{{ Request::is('generos*') ? 'active' : '' }}">
 
 </li>
