@@ -17,6 +17,7 @@
 
       <a href="{!! route('generos.index') !!}" class="dropdown-item"><i class="material-icons">tag_faces</i><span>Generos</span></a>
 
+      <a href="{!! route('autores.index') !!}" class="dropdown-item"><i class="material-icons">person</i><span>Autores</span></a>
 
     </div>
   </li>
@@ -53,5 +54,8 @@
 
 </li>
 <li class="{{ Request::is('generos*') ? 'active' : '' }}">
+
+</li>
+<li class="{{ Request::is('autores*') ? 'active' : '' }}">
 
 </li>

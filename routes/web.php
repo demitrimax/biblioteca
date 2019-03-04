@@ -30,3 +30,5 @@ Route::get('/GetMunicipios/{id}','HomeController@GetMunicipios');
 
 
 Route::resource('generos', 'generoController');
+
+Route::resource('autores', 'autoresController');
