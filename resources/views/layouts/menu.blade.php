@@ -50,12 +50,3 @@
       </li>
   @endguest
 </ul>
-<li class="{{ Request::is('clientes*') ? 'active' : '' }}">
-
-</li>
-<li class="{{ Request::is('generos*') ? 'active' : '' }}">
-
-</li>
-<li class="{{ Request::is('autores*') ? 'active' : '' }}">
-
-</li>

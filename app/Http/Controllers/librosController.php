@@ -69,9 +69,13 @@ class librosController extends AppBaseController
 
         if($request->has('portadaimg'))
         {
-          //$facturas->comprobante
-          $portada = $request->file('portadaimg')->store('portadas');
-          $libros->portadaimg = $portada;
+          $file = $request->file('portadaimg');
+          $path = public_path() . '/portadas/';
+          $nombre = uniqid().$file->getClientOriginalName();
+          $file->move($path, $nombre);
+
+          $portadaurl = 'portadas/'.$nombre;
+          $libros->portadaimg = $portadaurl;
           $libros->save();
         }
 
@@ -99,7 +103,7 @@ class librosController extends AppBaseController
             return redirect(route('libros.index'));
         }
 
-        Storage::setVisibility($libros->portadaimg, 'public');
+        //Storage::setVisibility($libros->portadaimg, 'public');
         return view('libros.show')->with(compact('libros'));
     }
 

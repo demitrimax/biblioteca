@@ -1,7 +1,7 @@
 <!-- Nombre Field -->
 <div class="form-group">
     {!! Form::label('nombre', 'Nombre:') !!}
-    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nombre', null, ['class' => 'form-control', 'maxlength' => '60']) !!}
 </div>
 
 <!-- Editorial Id Field -->

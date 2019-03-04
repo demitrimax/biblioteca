@@ -18,11 +18,11 @@
             <td>{!! $libro->genero->nombre !!}</td>
             <td>{!! date('Y', strtotime($libro->anioedit)) !!}</td>
             <td>
-                {!! Form::open(['route' => ['libros.destroy', $libro->id], 'method' => 'delete']) !!}
+                {!! Form::open(['route' => ['libros.destroy', $libro->id], 'method' => 'delete', 'id'=>'form'.$libro->id]) !!}
                 <div class='btn-group'>
                     <a href="{!! route('libros.show', [$libro->id]) !!}" class='btn btn-info btn-xs' data-toggle="tooltip" data-placement="top" title data-container="body" data-original-title="Ver detalles"><i class="material-icons">visibility</i></a>
                     <a href="{!! route('libros.edit', [$libro->id]) !!}" class='btn btn-primary btn-xs' data-toggle="tooltip" data-placement="top" title data-container="body" data-original-title="Editar"><i class="material-icons">create</i></a>
-                    {!! Form::button('<i class="material-icons">delete</i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro de eleiminar este elemento?')"]) !!}
+                    {!! Form::button('<i class="material-icons">delete</i>', ['type' => 'button', 'class' => 'btn btn-danger btn-xs', 'onclick' => "ConfirmDelete(".$libro->id.")"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>
@@ -30,3 +30,23 @@
     @endforeach
     </tbody>
 </table>
+@section('scripts')
+<script>
+function ConfirmDelete(id) {
+  swal({
+        title: '¿Estás seguro?',
+        text: 'Estás seguro de borrar este elemento.',
+        type: 'warning',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Continuar',
+        }).then((result) => {
+  if (result.value) {
+    document.forms['form'+id].submit();
+  }
+})
+
+}
+</script>
+@endsection

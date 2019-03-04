@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('body-class', 'profile-page sidebar-collapse')
 @section('content')
 @include('libros.pheader')
 <div class="main main-raised">
@@ -9,7 +10,7 @@
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile">
               <div class="avatar">
-                <img src="{{ Storage::url($libros->portadaimg) }}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                <img src="{{ asset($libros->portadaimg) }}" alt="Circle Image" width="50" height="50" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
                 <h3 class="title">{{$libros->nombre}}</h3>
