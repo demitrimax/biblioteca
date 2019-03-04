@@ -10,19 +10,18 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($libros as $libros)
+    @foreach($libros as $libro)
         <tr>
-            <td>{!! $libros->nombre !!}</td>
-            <td>{!! $libros->editorial_id !!}</td>
-            <td>{!! $libros->autor_id !!}</td>
-            <td>{!! $libros->genero_id !!}</td>
-            <td>{!! $libros->anioedit !!}</td>
-            <td>{!! $libros->portadaimg !!}</td>
+            <td>{!! $libro->nombre !!}</td>
+            <td>{!! $libro->editorial->nombre !!}</td>
+            <td>{!! $libro->autor->nombre !!}</td>
+            <td>{!! $libro->genero->nombre !!}</td>
+            <td>{!! date('Y', strtotime($libro->anioedit)) !!}</td>
             <td>
-                {!! Form::open(['route' => ['libros.destroy', $libros->id], 'method' => 'delete']) !!}
+                {!! Form::open(['route' => ['libros.destroy', $libro->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    <a href="{!! route('libros.show', [$libros->id]) !!}" class='btn btn-info btn-xs' data-toggle="tooltip" data-placement="top" title data-container="body" data-original-title="Ver detalles"><i class="material-icons">visibility</i></a>
-                    <a href="{!! route('libros.edit', [$libros->id]) !!}" class='btn btn-primary btn-xs' data-toggle="tooltip" data-placement="top" title data-container="body" data-original-title="Editar"><i class="material-icons">create</i></a>
+                    <a href="{!! route('libros.show', [$libro->id]) !!}" class='btn btn-info btn-xs' data-toggle="tooltip" data-placement="top" title data-container="body" data-original-title="Ver detalles"><i class="material-icons">visibility</i></a>
+                    <a href="{!! route('libros.edit', [$libro->id]) !!}" class='btn btn-primary btn-xs' data-toggle="tooltip" data-placement="top" title data-container="body" data-original-title="Editar"><i class="material-icons">create</i></a>
                     {!! Form::button('<i class="material-icons">delete</i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro de eleiminar este elemento?')"]) !!}
                 </div>
                 {!! Form::close() !!}

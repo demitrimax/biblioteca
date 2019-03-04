@@ -1,19 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <h1>
-            Libros
-        </h1>
-    </section>
-    <div class="content">
-        <div class="box box-primary">
-            <div class="box-body">
-                <div class="row" style="padding-left: 20px">
-                    @include('libros.show_fields')
-                    <a href="{!! route('libros.index') !!}" class="btn btn-default">Back</a>
-                </div>
+@include('libros.pheader')
+<div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile">
+              <div class="avatar">
+                <img src="{{ Storage::url($libros->portadaimg) }}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h3 class="title">{{$libros->nombre}}</h3>
+              </div>
             </div>
+          </div>
         </div>
+        <div class="description text-center">
+          <p>{{$libros->sinopsis}}</p>
+        </div>
+      </div>
     </div>
+  </div>
 @endsection

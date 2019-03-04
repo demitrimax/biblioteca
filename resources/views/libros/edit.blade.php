@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+  @include('libros.pheader')
+<div class="main main-raised">
+  <div class="container">
     <section class="content-header">
         <h1>
             Libros
@@ -20,4 +23,6 @@
            </div>
        </div>
    </div>
+ </div>
+</div>
 @endsection

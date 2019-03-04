@@ -50,7 +50,7 @@ class libros extends Model
      * @var array
      */
     protected $casts = [
-        'codigo' => 'integer',
+        'id' => 'integer',
         'nombre' => 'string',
         'editorial_id' => 'integer',
         'autor_id' => 'integer',
@@ -71,17 +71,17 @@ class libros extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function editoriale()
+    public function editorial()
     {
-        return $this->belongsTo(\App\Models\Editoriale::class);
+        return $this->belongsTo(\App\Models\editoriales::class);
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function autore()
+    public function autor()
     {
-        return $this->belongsTo(\App\Models\Autore::class);
+        return $this->belongsTo('App\Models\autores','autor_id');
     }
 
     /**

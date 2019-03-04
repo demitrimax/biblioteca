@@ -67,12 +67,12 @@ class librosController extends AppBaseController
 
         $libros = $this->librosRepository->create($input);
 
-        if($request->has('portada'))
+        if($request->has('portadaimg'))
         {
           //$facturas->comprobante
-          $portada = $request->file('portada')->store('portadas');
-          $libros->portada = $portada;
-          $facturas->save();
+          $portada = $request->file('portadaimg')->store('portadas');
+          $libros->portadaimg = $portada;
+          $libros->save();
         }
 
         Flash::success('Libro guardado correctamente.');
@@ -99,7 +99,8 @@ class librosController extends AppBaseController
             return redirect(route('libros.index'));
         }
 
-        return view('libros.show')->with('libros', $libros);
+        Storage::setVisibility($libros->portadaimg, 'public');
+        return view('libros.show')->with(compact('libros'));
     }
 
     /**
@@ -119,8 +120,10 @@ class librosController extends AppBaseController
 
             return redirect(route('libros.index'));
         }
-
-        return view('libros.edit')->with('libros', $libros);
+        $editoriales = editoriales::pluck('nombre','id');
+        $autores = autores::pluck('nombre','id');
+        $generos = genero::pluck('nombre','id');
+        return view('libros.edit')->with(compact('libros','editoriales','autores','generos'));
     }
 
     /**

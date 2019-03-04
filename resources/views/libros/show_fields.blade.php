@@ -1,8 +1,3 @@
-<!-- Codigo Field -->
-<div class="form-group">
-    {!! Form::label('codigo', 'Codigo:') !!}
-    <p>{!! $libros->codigo !!}</p>
-</div>
 
 <!-- Nombre Field -->
 <div class="form-group">
@@ -57,4 +52,3 @@
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $libros->deleted_at !!}</p>
 </div>
-
