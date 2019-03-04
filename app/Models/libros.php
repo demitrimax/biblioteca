@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer autor_id
  * @property integer genero_id
  * @property string|\Carbon\Carbon anioedit
+ * @property string sinopsis
  * @property string portadaimg
  */
 class libros extends Model
@@ -25,7 +26,7 @@ class libros extends Model
     use SoftDeletes;
 
     public $table = 'libros';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -39,6 +40,7 @@ class libros extends Model
         'autor_id',
         'genero_id',
         'anioedit',
+        'sinopsis',
         'portadaimg'
     ];
 
@@ -53,6 +55,7 @@ class libros extends Model
         'editorial_id' => 'integer',
         'autor_id' => 'integer',
         'genero_id' => 'integer',
+        'sinopsis' => 'string',
         'portadaimg' => 'string'
     ];
 
@@ -62,7 +65,7 @@ class libros extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

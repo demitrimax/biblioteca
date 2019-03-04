@@ -7,25 +7,31 @@
 <!-- Editorial Id Field -->
 <div class="form-group">
     {!! Form::label('editorial_id', 'Editorial:') !!}
-    {!! Form::select('editorial_id', $editoriales, null, ['class' => 'form-control', 'placeholder'=>'Seleccione una editorial']) !!}
+    {!! Form::select('editorial_id', $editoriales, null, ['class' => 'form-control select2', 'placeholder'=>'Seleccione una editorial']) !!}
 </div>
 
 <!-- Autor Id Field -->
 <div class="form-group">
-    {!! Form::label('autor_id', 'Autor Id:') !!}
-    {!! Form::number('autor_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('autor_id', 'Autor:') !!}
+    {!! Form::select('autor_id', $autores, null, ['class' => 'form-control select2']) !!}
 </div>
 
 <!-- Genero Id Field -->
 <div class="form-group">
-    {!! Form::label('genero_id', 'Genero Id:') !!}
-    {!! Form::number('genero_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('genero_id', 'Genero:') !!}
+    {!! Form::select('genero_id', $generos,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Anioedit Field -->
 <div class="form-group">
     {!! Form::label('anioedit', 'Año:') !!}
     {!! Form::date('anioedit', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Portadaimg Field -->
+<div class="form-group">
+    {!! Form::label('sinpsos', 'Sinopsis:') !!}
+    {!! Form::textarea('sinopsis', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Portadaimg Field -->

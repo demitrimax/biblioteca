@@ -7,11 +7,14 @@ use App\Http\Requests\UpdatelibrosRequest;
 use App\Repositories\librosRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Flash;
 Use Alert;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\editoriales;
+use App\Models\autores;
+use App\Models\genero;
 
 class librosController extends AppBaseController
 {
@@ -46,7 +49,9 @@ class librosController extends AppBaseController
     public function create()
     {
         $editoriales = editoriales::pluck('nombre','id');
-        return view('libros.create')->with(compact('editoriales'));
+        $autores = autores::pluck('nombre','id');
+        $generos = genero::pluck('nombre','id');
+        return view('libros.create')->with(compact('editoriales','autores','generos'));
     }
 
     /**
@@ -61,6 +66,14 @@ class librosController extends AppBaseController
         $input = $request->all();
 
         $libros = $this->librosRepository->create($input);
+
+        if($request->has('portada'))
+        {
+          //$facturas->comprobante
+          $portada = $request->file('portada')->store('portadas');
+          $libros->portada = $portada;
+          $facturas->save();
+        }
 
         Flash::success('Libro guardado correctamente.');
         Alert::success('Libro guardado correctamente.');
