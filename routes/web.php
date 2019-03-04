@@ -23,3 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('libros', 'librosController');
 
 Route::resource('editoriales', 'editorialesController');
+
+Route::resource('clientes', 'clientesController');
+
+Route::get('/GetMunicipios/{id}','HomeController@GetMunicipios');

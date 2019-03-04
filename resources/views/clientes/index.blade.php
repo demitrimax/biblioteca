@@ -1,18 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-
+@include('clientes.pheader')
 
 <div class="main main-raised">
   <div class="section section-basic">
-  <div class="container">
+    <div class="container">
     <section class="content-header">
-        <h1 class="pull-left">$MODEL_NAME_PLURAL_HUMAN$</h1>
+        <h1 class="pull-left">Clientes</h1>
         <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.create') !!}">Agregar Nuevo</a>
+           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('clientes.create') !!}">Agregar Nuevo</a>
         </h1>
     </section>
-    <div class="content">
         <div class="clearfix"></div>
 
         @include('flash::message')
@@ -20,13 +19,12 @@
         <div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
-                    @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.table')
+                    @include('clientes.table')
             </div>
         </div>
         <div class="text-center">
-        $PAGINATE$
+
         </div>
-    </div>
   </div>
 </div>
 </div>

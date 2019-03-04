@@ -1,21 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+@include('clientes.pheader')
 <div class="main main-raised">
   <div class="section section-basic">
-  <div class="container">
+    <div class="container">
     <section class="content-header">
         <h1>
-            $MODEL_NAME_HUMAN$
+            Editar Cliente
         </h1>
    </section>
    <div class="content">
        @include('adminlte-templates::common.errors')
                <div class="row">
-               <div class="col-ms">
-                   {!! Form::model($$MODEL_NAME_CAMEL$, ['route' => ['$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.update', $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$], 'method' => 'patch']) !!}
+                 <div class="col-md">
+                   {!! Form::model($clientes, ['route' => ['clientes.update', $clientes->id], 'method' => 'patch']) !!}
 
-                        @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
+                        @include('clientes.fields')
 
                    {!! Form::close() !!}
                </div>

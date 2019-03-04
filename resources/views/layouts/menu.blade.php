@@ -13,6 +13,8 @@
 
       <a href="{!! route('editoriales.index') !!}" class="dropdown-item"><i class="material-icons">collections_bookmark</i><span>Editoriales</span></a>
 
+      <a href="{!! route('clientes.index') !!}" class="dropdown-item"><i class="material-icons">assignment_ind</i><span>Clientes</span></a>
+
 
     </div>
   </li>
@@ -45,3 +47,6 @@
       </li>
   @endguest
 </ul>
+<li class="{{ Request::is('clientes*') ? 'active' : '' }}">
+
+</li>

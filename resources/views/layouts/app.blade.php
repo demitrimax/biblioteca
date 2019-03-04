@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="{{asset('materialkit/assets/css/material-kit.css?v=2.0.5')}}" rel="stylesheet" />
+  @yield('css')
 
 </head>
 
@@ -76,6 +77,7 @@
   <script src="{{asset('materialkit/assets/js/plugins/nouislider.min.js')}}" type="text/javascript"></script>
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="{{asset('materialkit/assets/js/material-kit.js?v=2.0.5')}}" type="text/javascript"></script>
+  @yield('scripts')
 </body>
 
 </html>

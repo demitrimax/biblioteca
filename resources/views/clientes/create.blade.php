@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
+@include('clientes.pheader')
 <div class="main main-raised">
   <div class="container">
     <section class="content-header">
         <h1>
-            Alta de nuevo $MODEL_NAME_HUMAN$
+            Alta de nuevo Cliente
         </h1>
     </section>
     <div class="content">
@@ -16,9 +16,9 @@
 
 
 
-                    {!! Form::open(['route' => '$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.store']) !!}
+                    {!! Form::open(['route' => 'clientes.store']) !!}
 
-                        @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
+                        @include('clientes.fields')
 
                     {!! Form::close() !!}
 
@@ -27,4 +27,9 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('scripts')
+
+@stack('script')
 @endsection
