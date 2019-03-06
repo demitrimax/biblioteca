@@ -7,9 +7,6 @@
       <a href="{{route('libros.index')}}" class="dropdown-item">
         <i class="material-icons">library_books</i> Libros
       </a>
-      <a href="https://demos.creative-tim.com/material-kit/docs/2.1/getting-started/introduction.html" class="dropdown-item">
-        <i class="material-icons">content_paste</i> con descuentos
-      </a>
 
       <a href="{!! route('editoriales.index') !!}" class="dropdown-item"><i class="material-icons">collections_bookmark</i><span>Editoriales</span></a>
 

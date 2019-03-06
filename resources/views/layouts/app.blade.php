@@ -46,12 +46,12 @@
         <ul>
           <li>
             <a href="https://www.creative-tim.com">
-              Apartados
+              Prestamos
             </a>
           </li>
           <li>
             <a href="https://creative-tim.com/presentation">
-              Conocenos
+              Libros
             </a>
           </li>
         </ul>

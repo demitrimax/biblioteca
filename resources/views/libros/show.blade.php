@@ -10,10 +10,11 @@
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile">
               <div class="avatar">
-                <img src="{{ asset($libros->portadaimg) }}" alt="Circle Image" width="50" height="50" class="img-raised rounded-circle img-fluid">
+                <img src="{{ asset($libros->portadaimg) }}" alt="Circle Image" width="50" height="50" class="img-raised rounded img-fluid">
               </div>
               <div class="name">
                 <h3 class="title">{{$libros->nombre}}</h3>
+                <h6>{{$libros->autor->nombre}}</h6>
               </div>
             </div>
           </div>
