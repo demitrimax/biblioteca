@@ -89,6 +89,6 @@ class libros extends Model
      **/
     public function genero()
     {
-        return $this->belongsTo(\App\Models\Genero::class);
+        return $this->belongsTo(\App\Models\genero::class);
     }
 }
