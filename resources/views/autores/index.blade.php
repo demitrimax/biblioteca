@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title',config('app.name').' | Autores')
 
 @section('content')
 @include('autores.pheader')

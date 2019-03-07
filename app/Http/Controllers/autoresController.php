@@ -76,7 +76,7 @@ class autoresController extends AppBaseController
         Flash::success('Autor guardado correctamente.');
         Alert::success('Autor guardado correctamente.');
 
-        return redirect(route('autoress.index'));
+        return redirect(route('autores.index'));
     }
 
     /**
@@ -94,7 +94,7 @@ class autoresController extends AppBaseController
             Flash::error('Autor no encontrado');
             Alert::error('Autor no encontrado');
 
-            return redirect(route('autoress.index'));
+            return redirect(route('autores.index'));
         }
 
         return view('autores.show')->with('autores', $autores);
@@ -115,7 +115,7 @@ class autoresController extends AppBaseController
             Flash::error('Autor no encontrado');
             Alert::error('Autor no encontrado');
 
-            return redirect(route('autoress.index'));
+            return redirect(route('autores.index'));
         }
 
         return view('autores.edit')->with('autores', $autores);
@@ -137,7 +137,7 @@ class autoresController extends AppBaseController
             Flash::error('Autor no encontrado');
             Alert::error('Autor no encontrado');
 
-            return redirect(route('autoress.index'));
+            return redirect(route('autores.index'));
         }
 
         $autores = $this->autoresRepository->update($request->all(), $id);
@@ -157,7 +157,7 @@ class autoresController extends AppBaseController
         Flash::success('Autor actualizado correctamente.');
         Alert::success('Autor actualizado correctamente.');
 
-        return redirect(route('autoress.index'));
+        return redirect(route('autores.index'));
     }
 
     /**
@@ -175,7 +175,7 @@ class autoresController extends AppBaseController
             Flash::error('Autor no encontrado');
             Alert::error('Autor no encontrado');
 
-            return redirect(route('autoress.index'));
+            return redirect(route('autores.index'));
         }
 
         $this->autoresRepository->delete($id);
@@ -183,6 +183,6 @@ class autoresController extends AppBaseController
         Flash::success('Autor borrado correctamente.');
         Alert::success('Autor borrado correctamente.');
 
-        return redirect(route('autoress.index'));
+        return redirect(route('autores.index'));
     }
 }

@@ -27,7 +27,7 @@
 
 <!-- Genero Id Field -->
 <div class="form-group">
-    {!! Form::label('genero_id', 'Genero:') !!}
+    {!! Form::label('genero_id', 'Género:') !!}
     {!! Form::select('genero_id', $generos,null, ['class' => 'form-control']) !!}
 </div>
 

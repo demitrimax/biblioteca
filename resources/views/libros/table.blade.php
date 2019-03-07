@@ -4,7 +4,7 @@
         <th>Nombre</th>
         <th>Editorial</th>
         <th>Autor</th>
-        <th>Genero</th>
+        <th>Género</th>
         <th>Año</th>
         <th>Acciones</th>
         </tr>

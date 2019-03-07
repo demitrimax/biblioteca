@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title',config('app.name').' | Géneros')
 
 @section('content')
 @include('generos.pheader')
@@ -7,7 +8,7 @@
   <div class="section section-basic">
   <div class="container">
     <section class="content-header">
-        <h1 class="pull-left">Generos</h1>
+        <h1 class="pull-left">Géneros</h1>
         <h1 class="pull-right">
            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('generos.create') !!}">Agregar Nuevo</a>
         </h1>

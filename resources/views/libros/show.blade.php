@@ -17,7 +17,7 @@
               </div>
               <div class="name">
                 <h3 class="title">{{$libros->nombre}}</h3>
-                <h6>{{$libros->autor->nombre}}</h6>
+                <h6><a href="{{url('/autores/'.$libros->autor_id)}}">{{$libros->autor->nombre}}</a></h6>
               </div>
             </div>
           </div>

@@ -12,7 +12,7 @@
 
       <a href="{!! route('clientes.index') !!}" class="dropdown-item"><i class="material-icons">assignment_ind</i><span>Clientes</span></a>
 
-      <a href="{!! route('generos.index') !!}" class="dropdown-item"><i class="material-icons">tag_faces</i><span>Generos</span></a>
+      <a href="{!! route('generos.index') !!}" class="dropdown-item"><i class="material-icons">tag_faces</i><span>Géneros</span></a>
 
       <a href="{!! route('autores.index') !!}" class="dropdown-item"><i class="material-icons">person</i><span>Autores</span></a>
 
