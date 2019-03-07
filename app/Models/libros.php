@@ -91,4 +91,12 @@ class libros extends Model
     {
         return $this->belongsTo(\App\Models\genero::class);
     }
+    public function getImgportadaAttribute()
+    {
+      $portada = 'portadas/Sinportada.png';
+      if($this->portadaimg){
+        $portada = $this->portadaimg;
+      }
+      return $portada;
+    }
 }

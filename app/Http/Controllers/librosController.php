@@ -66,13 +66,14 @@ class librosController extends AppBaseController
 
         $rules = [
           'nombre'        => 'required',
-          'anioedit'      => 'required',
+          'anioedit'      => 'required|date',
           'editorial_id'  => 'required',
         ];
 
         $messages = [
             'nombre.required'              => 'El nombre del libro es requerido',
             'anioedit.required'            => 'Es necesario una fecha de Edición',
+            'anioedit.date'                => 'La fecha debe ser válida',
 
         ];
 
@@ -170,7 +171,7 @@ class librosController extends AppBaseController
       ];
 
       $this->validate($request, $rules, $messages);
-      
+
         $libros = $this->librosRepository->findWithoutFail($id);
 
         if (empty($libros)) {
@@ -181,6 +182,18 @@ class librosController extends AppBaseController
         }
 
         $libros = $this->librosRepository->update($request->all(), $id);
+
+        if($request->has('portadaimg'))
+        {
+          $file = $request->file('portadaimg');
+          $path = public_path() . '/portadas/';
+          $nombre = uniqid().$file->getClientOriginalName();
+          $file->move($path, $nombre);
+
+          $portadaurl = 'portadas/'.$nombre;
+          $libros->portadaimg = $portadaurl;
+          $libros->save();
+        }
 
         Flash::success('Libro actualizado correctamente.');
         Alert::success('Libro actualizado correctamente.');

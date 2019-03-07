@@ -1,3 +1,12 @@
+  @php
+    $fecha = null;
+    $hoy = date('Y-m-d');
+    if (isset($libros->anioedit))
+    {
+      $fecha = date('Y-m-d', strtotime($libros->anioedit));
+    }
+    //echo $fecha;
+  @endphp
 <!-- Nombre Field -->
 <div class="form-group">
     {!! Form::label('nombre', 'Nombre:') !!}
@@ -25,7 +34,7 @@
 <!-- Anioedit Field -->
 <div class="form-group">
     {!! Form::label('anioedit', 'Fecha:') !!}
-    {!! Form::date('anioedit', null, ['class' => 'form-control']) !!}
+    {!! Form::date('anioedit', $fecha, ['class' => 'form-control', 'min'=>'1910-01-01', 'max'=>$hoy, 'required']) !!}
 </div>
 
 <!-- Portadaimg Field -->
@@ -60,7 +69,9 @@
 </div>
 
 @section('scripts')
+
 <script>
+
 
     // FileInput
     $('.form-file-simple .inputFileVisible').click(function() {
@@ -77,6 +88,17 @@
       $(this).parent().parent().addClass('is-focused');
     });
 
+    $('.form-file-multiple .inputFileHidden').change(function() {
+      var names = '';
+      for (var i = 0; i < $(this).get(0).files.length; ++i) {
+        if (i < $(this).get(0).files.length - 1) {
+          names += $(this).get(0).files.item(i).name + ',';
+        } else {
+          names += $(this).get(0).files.item(i).name;
+        }
+      }
+      $(this).siblings('.input-group').find('.inputFileVisible').val(names);
+    });
 
     $('.form-file-multiple .btn').on('focus', function() {
       $(this).parent().siblings().trigger('focus');
@@ -85,7 +107,5 @@
     $('.form-file-multiple .btn').on('focusout', function() {
       $(this).parent().siblings().trigger('focusout');
     });
-
-
-</script>
+  </script>
 @endsection

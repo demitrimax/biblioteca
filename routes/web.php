@@ -21,13 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('libros', 'librosController');
-Route::resource('autores', 'autoresController');
-
+Route::resource('autoress', 'autoresController');
 Route::resource('editoriales', 'editorialesController');
-
 Route::resource('clientes', 'clientesController');
+Route::resource('generos', 'generoController');
 
 Route::get('/GetMunicipios/{id}','clientesController@GetMunicipios');
-
-
-Route::resource('generos', 'generoController');

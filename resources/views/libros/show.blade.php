@@ -12,7 +12,7 @@
             <div class="profile">
               <div class="avatar">
                 <a href="#" data-toggle="modal" data-target="#portadaimagen">
-                <img src="{{ asset($libros->portadaimg) }}" alt="Circle Image" width="50" height="50" class="img-raised rounded img-fluid">
+                <img src="{{ asset($libros->imgportada) }}" alt="Circle Image" width="50" height="50" class="img-raised rounded img-fluid">
                 </a>
               </div>
               <div class="name">
@@ -26,7 +26,9 @@
             <h2>Sinópsis</h2>
             <h4>{{$libros->sinopsis}}</h4>
             <br>
-                      <button class="btn btn-primary">Agregar al carrito<div class="ripple-container"></div></button>
+            <button class="btn btn-primary">Agregar al carrito<div class="ripple-container"></div></button>
+            <a class="btn btn-primary" href="{{url('libros/'.$libros->id.'/edit/')}}">Editar<div class="ripple-container"></div></a>
+            <a class="btn btn-primary" href="{{url('libros/')}}">Regresar<div class="ripple-container"></div></a>
           </div>
 
 
@@ -45,7 +47,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <img src="{{ asset($libros->portadaimg) }}" alt="Circle Image" class="img-raised rounded img-fluid">
+          <img src="{{ asset($libros->imgportada) }}" alt="Circle Image" class="img-raised rounded img-fluid">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
