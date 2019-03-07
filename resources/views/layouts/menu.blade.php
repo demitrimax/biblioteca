@@ -43,7 +43,12 @@
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
               </form>
+              <a href="{!! route('user.index') !!}" class="dropdown-item"><i class="material-icons">person</i><span>Usuarios</span></a>
+              <a href="{!! route('roles.index') !!}" class="dropdown-item"><i class="material-icons">person</i><span>Roles</span></a>
+              <a href="{!! route('permissions.index') !!}" class="dropdown-item"><i class="material-icons">person</i><span>Permisos</span></a>
           </div>
+
       </li>
+
   @endguest
 </ul>

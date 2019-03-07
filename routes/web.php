@@ -26,4 +26,8 @@ Route::resource('editoriales', 'editorialesController');
 Route::resource('clientes', 'clientesController');
 Route::resource('generos', 'generoController');
 
+Route::resource('user','UserController');
+Route::resource('roles','RoleController');
+Route::resource('permissions', 'PermissionController');
+
 Route::get('/GetMunicipios/{id}','clientesController@GetMunicipios');
