@@ -13,13 +13,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection Libro
  * @property string nombre
  * @property string nacionalidad
+ * @property string bio
+ * @property string foto
  */
 class autores extends Model
 {
     use SoftDeletes;
 
     public $table = 'autores';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -29,7 +31,9 @@ class autores extends Model
 
     public $fillable = [
         'nombre',
-        'nacionalidad'
+        'nacionalidad',
+        'bio',
+        'foto',
     ];
 
     /**
@@ -38,9 +42,11 @@ class autores extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'nacionalidad' => 'string'
+        'id'           => 'integer',
+        'nombre'       => 'string',
+        'nacionalidad' => 'string',
+        'bio'          => 'string',
+        'foto'         => 'string',
     ];
 
     /**
@@ -49,7 +55,7 @@ class autores extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -57,6 +63,6 @@ class autores extends Model
      **/
     public function libros()
     {
-        return $this->hasMany(\App\Models\Libro::class);
+        return $this->hasMany(\App\Models\libros::class);
     }
 }

@@ -13,7 +13,7 @@
    <div class="content">
        @include('adminlte-templates::common.errors')
                <div class="row">
-               <div class="col-ms">
+               <div class="col-sm">
                    {!! Form::model($autores, ['route' => ['autores.update', $autores->id], 'method' => 'patch']) !!}
 
                         @include('autores.fields')

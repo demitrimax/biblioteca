@@ -42,7 +42,7 @@
 -->
 
 <div class="form-group form-file-upload form-file-multiple">
-  <input type="file" multiple="" class="inputFileHidden" id="portadaimg" name="portadaimg">
+  <input type="file" multiple="" class="inputFileHidden" id="portadaimg" name="portadaimg" accept="image/*">
   <div class="input-group">
       <input type="text" class="form-control inputFileVisible" placeholder="Portada...">
       <span class="input-group-btn">

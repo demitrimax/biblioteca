@@ -1,4 +1,4 @@
-<table class="table table-responsive" id="autores-table">
+<table class="table" id="autores-table">
     <thead>
         <tr>
             <th>Nombre</th>
