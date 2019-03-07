@@ -63,6 +63,16 @@ class autores extends Model
      **/
     public function libros()
     {
-        return $this->hasMany(\App\Models\libros::class);
+        return $this->hasMany('App\Models\libros','autor_id');
+    }
+
+    public function getAutorfotoAttribute()
+    {
+      $foto = 'materialkit/assets/img/faces/marc.jpg';
+      if($this->foto)
+      {
+        $foto = $this->foto;
+      }
+      return $foto;
     }
 }

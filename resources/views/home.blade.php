@@ -50,7 +50,7 @@
               </div>
           </div>
       </div>
-      <a href="route('libros.create')" class="btn btn-primary btn-round">Alta de Libro</a>
+      <a href="{{route('libros.create')}}" class="btn btn-primary btn-round">Alta de Libro</a>
   </div>
 </div>
 @endsection

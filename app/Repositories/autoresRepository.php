@@ -21,7 +21,8 @@ class autoresRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'nombre',
-        'nacionalidad'
+        'nacionalidad',
+        'bio',
     ];
 
     /**

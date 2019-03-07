@@ -14,7 +14,7 @@
        @include('adminlte-templates::common.errors')
                <div class="row">
                <div class="col-sm">
-                   {!! Form::model($autores, ['route' => ['autores.update', $autores->id], 'method' => 'patch']) !!}
+                   {!! Form::model($autores, ['route' => ['autores.update', $autores->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!}
 
                         @include('autores.fields')
 

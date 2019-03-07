@@ -6,6 +6,7 @@ use App\Http\Requests\CreateautoresRequest;
 use App\Http\Requests\UpdateautoresRequest;
 use App\Repositories\autoresRepository;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Flash;
 use Alert;
@@ -34,7 +35,7 @@ class autoresController extends AppBaseController
         $autores = $this->autoresRepository->all();
 
         return view('autores.index')
-            ->with('autores', $autores);
+            ->with(compact('autores'));
     }
 
     /**
@@ -59,6 +60,18 @@ class autoresController extends AppBaseController
         $input = $request->all();
 
         $autores = $this->autoresRepository->create($input);
+
+        if($request->has('foto'))
+        {
+          $file = $request->file('foto');
+          $path = public_path() . '/autores/';
+          $nombre = uniqid().$file->getClientOriginalName();
+          $file->move($path, $nombre);
+
+          $fotourl = 'autores/'.$nombre;
+          $autores->foto = $fotourl;
+          $autores->save();
+        }
 
         Flash::success('Autor guardado correctamente.');
         Alert::success('Autor guardado correctamente.');
@@ -128,6 +141,18 @@ class autoresController extends AppBaseController
         }
 
         $autores = $this->autoresRepository->update($request->all(), $id);
+
+        if($request->has('foto'))
+        {
+          $file = $request->file('foto');
+          $path = public_path() . '/autores/';
+          $nombre = uniqid().$file->getClientOriginalName();
+          $file->move($path, $nombre);
+
+          $fotourl = 'autores/'.$nombre;
+          $autores->foto = $fotourl;
+          $autores->save();
+        }
 
         Flash::success('Autor actualizado correctamente.');
         Alert::success('Autor actualizado correctamente.');
