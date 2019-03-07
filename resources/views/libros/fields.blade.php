@@ -24,7 +24,7 @@
 
 <!-- Anioedit Field -->
 <div class="form-group">
-    {!! Form::label('anioedit', 'Año:') !!}
+    {!! Form::label('anioedit', 'Fecha:') !!}
     {!! Form::date('anioedit', null, ['class' => 'form-control']) !!}
 </div>
 

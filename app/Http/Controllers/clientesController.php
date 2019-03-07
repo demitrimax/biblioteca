@@ -170,4 +170,10 @@ class clientesController extends AppBaseController
         return redirect(route('clientes.index'));
     }
 
+    public function GetMunicipios($id)
+    {
+      $municipios = municipios::where('id_edo',$id)->select('id','nombre')->get();
+      return $municipios;
+    }
+
 }

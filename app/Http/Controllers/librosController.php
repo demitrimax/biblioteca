@@ -63,6 +63,22 @@ class librosController extends AppBaseController
      */
     public function store(CreatelibrosRequest $request)
     {
+
+        $rules = [
+          'nombre'        => 'required',
+          'anioedit'      => 'required',
+          'editorial_id'  => 'required',
+        ];
+
+        $messages = [
+            'nombre.required'              => 'El nombre del libro es requerido',
+            'anioedit.required'            => 'Es necesario una fecha de Edición',
+
+        ];
+
+        $this->validate($request, $rules, $messages);
+
+
         $input = $request->all();
 
         $libros = $this->librosRepository->create($input);
@@ -116,6 +132,7 @@ class librosController extends AppBaseController
      */
     public function edit($id)
     {
+
         $libros = $this->librosRepository->findWithoutFail($id);
 
         if (empty($libros)) {
@@ -140,6 +157,20 @@ class librosController extends AppBaseController
      */
     public function update($id, UpdatelibrosRequest $request)
     {
+      $rules = [
+        'nombre'        => 'required',
+        'anioedit'      => 'required',
+        'editorial_id'  => 'required',
+      ];
+
+      $messages = [
+          'nombre.required'              => 'El nombre del libro es requerido',
+          'anioedit.required'            => 'Es necesario una fecha de Edición',
+
+      ];
+
+      $this->validate($request, $rules, $messages);
+      
         $libros = $this->librosRepository->findWithoutFail($id);
 
         if (empty($libros)) {

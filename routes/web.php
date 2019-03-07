@@ -26,7 +26,7 @@ Route::resource('editoriales', 'editorialesController');
 
 Route::resource('clientes', 'clientesController');
 
-Route::get('/GetMunicipios/{id}','HomeController@GetMunicipios');
+Route::get('/GetMunicipios/{id}','clientesController@GetMunicipios');
 
 
 Route::resource('generos', 'generoController');

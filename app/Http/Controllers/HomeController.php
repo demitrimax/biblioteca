@@ -26,9 +26,5 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function GetMunicipios($id)
-    {
-      $municipios = municipios::where('id_edo',$id)->select('id','nombre')->get();
-      return $municipios;
-    }
+
 }

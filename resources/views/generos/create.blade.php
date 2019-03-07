@@ -4,6 +4,7 @@
 @include('clientes.pheader')
 
 <div class="main main-raised">
+    <div class="section section-basic">
   <div class="container">
     <section class="content-header">
         <h1>
@@ -27,5 +28,6 @@
         </div>
     </div>
   </div>
+</div>
 </div>
 @endsection

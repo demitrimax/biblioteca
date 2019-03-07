@@ -4,6 +4,7 @@
   @include('libros.pheader')
 
   <div class="main main-raised">
+        <div class="section section-basic">
     <div class="container">
 
     <section class="content-header">
@@ -28,5 +29,6 @@
         </div>
     </div>
   </div>
+</div>
 </div>
 @endsection
