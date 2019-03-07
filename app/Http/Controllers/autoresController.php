@@ -64,11 +64,11 @@ class autoresController extends AppBaseController
         if($request->has('foto'))
         {
           $file = $request->file('foto');
-          $path = public_path() . '/autores/';
+          $path = public_path() . '/autoress/';
           $nombre = uniqid().$file->getClientOriginalName();
           $file->move($path, $nombre);
 
-          $fotourl = 'autores/'.$nombre;
+          $fotourl = 'autoress/'.$nombre;
           $autores->foto = $fotourl;
           $autores->save();
         }
@@ -145,11 +145,11 @@ class autoresController extends AppBaseController
         if($request->has('foto'))
         {
           $file = $request->file('foto');
-          $path = public_path() . '/autores/';
+          $path = public_path() . '/autoress/';
           $nombre = uniqid().$file->getClientOriginalName();
           $file->move($path, $nombre);
 
-          $fotourl = 'autores/'.$nombre;
+          $fotourl = 'autoress/'.$nombre;
           $autores->foto = $fotourl;
           $autores->save();
         }

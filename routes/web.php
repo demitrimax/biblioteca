@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('libros', 'librosController');
-Route::resource('autoress', 'autoresController');
+Route::resource('autores', 'autoresController');
 Route::resource('editoriales', 'editorialesController');
 Route::resource('clientes', 'clientesController');
 Route::resource('generos', 'generoController');

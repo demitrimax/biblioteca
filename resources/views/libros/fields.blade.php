@@ -71,8 +71,6 @@
 @section('scripts')
 
 <script>
-
-
     // FileInput
     $('.form-file-simple .inputFileVisible').click(function() {
       $(this).siblings('.inputFileHidden').trigger('click');

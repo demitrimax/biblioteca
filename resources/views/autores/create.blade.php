@@ -18,7 +18,7 @@
 
 
 
-                    {!! Form::open(['route' => 'autoress.store', 'enctype' => 'multipart/form-data']) !!}
+                    {!! Form::open(['route' => 'autores.store', 'enctype' => 'multipart/form-data']) !!}
 
                         @include('autores.fields')
 

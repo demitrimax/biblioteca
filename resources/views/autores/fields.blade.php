@@ -34,12 +34,11 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('autoress.index') !!}" class="btn btn-default">Cancelar</a>
+    <a href="{!! route('autores.index') !!}" class="btn btn-default">Cancelar</a>
 </div>
 
 @section('scripts')
 <script>
-
     // FileInput
     $('.form-file-simple .inputFileVisible').click(function() {
       $(this).siblings('.inputFileHidden').trigger('click');
@@ -55,6 +54,17 @@
       $(this).parent().parent().addClass('is-focused');
     });
 
+    $('.form-file-multiple .inputFileHidden').change(function() {
+      var names = '';
+      for (var i = 0; i < $(this).get(0).files.length; ++i) {
+        if (i < $(this).get(0).files.length - 1) {
+          names += $(this).get(0).files.item(i).name + ',';
+        } else {
+          names += $(this).get(0).files.item(i).name;
+        }
+      }
+      $(this).siblings('.input-group').find('.inputFileVisible').val(names);
+    });
 
     $('.form-file-multiple .btn').on('focus', function() {
       $(this).parent().siblings().trigger('focus');
@@ -63,7 +73,5 @@
     $('.form-file-multiple .btn').on('focusout', function() {
       $(this).parent().siblings().trigger('focusout');
     });
-
-
 </script>
 @endsection

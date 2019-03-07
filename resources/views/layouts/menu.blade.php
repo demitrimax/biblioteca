@@ -14,7 +14,7 @@
 
       <a href="{!! route('generos.index') !!}" class="dropdown-item"><i class="material-icons">tag_faces</i><span>Generos</span></a>
 
-      <a href="{!! route('autoress.index') !!}" class="dropdown-item"><i class="material-icons">person</i><span>Autores</span></a>
+      <a href="{!! route('autores.index') !!}" class="dropdown-item"><i class="material-icons">person</i><span>Autores</span></a>
 
     </div>
   </li>
