@@ -31,3 +31,6 @@ Route::resource('roles','RoleController');
 Route::resource('permissions', 'PermissionController');
 
 Route::get('/GetMunicipios/{id}','clientesController@GetMunicipios');
+
+
+Route::resource('ejemplares', 'ejemplaresController');

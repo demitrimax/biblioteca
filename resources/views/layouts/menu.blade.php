@@ -26,6 +26,7 @@
        @can('autores-list')
       <a href="{!! route('autores.index') !!}" class="dropdown-item"><i class="material-icons">person</i><span>Autores</span></a>
       @endcan
+      <a href="{!! route('ejemplares.index') !!}" class="dropdown-item"><i class="material-icons">playlist_add</i><span>Ejemplares</span></a>
     </div>
   </li>
   @guest

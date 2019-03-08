@@ -1,0 +1,165 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\CreateejemplaresRequest;
+use App\Http\Requests\UpdateejemplaresRequest;
+use App\Repositories\ejemplaresRepository;
+use App\Http\Controllers\AppBaseController;
+use Illuminate\Http\Request;
+use Flash;
+use Alert;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Response;
+use App\Models\libros;
+
+class ejemplaresController extends AppBaseController
+{
+    /** @var  ejemplaresRepository */
+    private $ejemplaresRepository;
+
+    public function __construct(ejemplaresRepository $ejemplaresRepo)
+    {
+        $this->ejemplaresRepository = $ejemplaresRepo;
+    }
+
+    /**
+     * Display a listing of the ejemplares.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function index(Request $request)
+    {
+        $this->ejemplaresRepository->pushCriteria(new RequestCriteria($request));
+        $ejemplares = $this->ejemplaresRepository->all();
+
+        return view('ejemplares.index')
+            ->with('ejemplares', $ejemplares);
+    }
+
+    /**
+     * Show the form for creating a new ejemplares.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        $libros = libros::pluck('nombre','id');
+        return view('ejemplares.create')->with(compact('libros'));
+    }
+
+    /**
+     * Store a newly created ejemplares in storage.
+     *
+     * @param CreateejemplaresRequest $request
+     *
+     * @return Response
+     */
+    public function store(CreateejemplaresRequest $request)
+    {
+        $input = $request->all();
+
+        $ejemplares = $this->ejemplaresRepository->create($input);
+
+        Flash::success('Ejemplares guardado correctamente.');
+        Alert::success('Ejemplares guardado correctamente.');
+
+        return redirect(route('ejemplares.index'));
+    }
+
+    /**
+     * Display the specified ejemplares.
+     *
+     * @param  int $id
+     *
+     * @return Response
+     */
+    public function show($id)
+    {
+        $ejemplares = $this->ejemplaresRepository->findWithoutFail($id);
+
+        if (empty($ejemplares)) {
+            Flash::error('Ejemplares no encontrado');
+            Alert::error('Ejemplares no encontrado');
+
+            return redirect(route('ejemplares.index'));
+        }
+
+        return view('ejemplares.show')->with('ejemplares', $ejemplares);
+    }
+
+    /**
+     * Show the form for editing the specified ejemplares.
+     *
+     * @param  int $id
+     *
+     * @return Response
+     */
+    public function edit($id)
+    {
+        $ejemplares = $this->ejemplaresRepository->findWithoutFail($id);
+
+        if (empty($ejemplares)) {
+            Flash::error('Ejemplares no encontrado');
+            Alert::error('Ejemplares no encontrado');
+
+            return redirect(route('ejemplares.index'));
+        }
+        $libros = libros::pluck('nombre','id');
+        return view('ejemplares.edit')->with(compact('ejemplares','libros'));
+    }
+
+    /**
+     * Update the specified ejemplares in storage.
+     *
+     * @param  int              $id
+     * @param UpdateejemplaresRequest $request
+     *
+     * @return Response
+     */
+    public function update($id, UpdateejemplaresRequest $request)
+    {
+        $ejemplares = $this->ejemplaresRepository->findWithoutFail($id);
+
+        if (empty($ejemplares)) {
+            Flash::error('Ejemplares no encontrado');
+            Alert::error('Ejemplares no encontrado');
+
+            return redirect(route('ejemplares.index'));
+        }
+
+        $ejemplares = $this->ejemplaresRepository->update($request->all(), $id);
+
+        Flash::success('Ejemplares actualizado correctamente.');
+        Alert::success('Ejemplares actualizado correctamente.');
+
+        return redirect(route('ejemplares.index'));
+    }
+
+    /**
+     * Remove the specified ejemplares from storage.
+     *
+     * @param  int $id
+     *
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        $ejemplares = $this->ejemplaresRepository->findWithoutFail($id);
+
+        if (empty($ejemplares)) {
+            Flash::error('Ejemplares no encontrado');
+            Alert::error('Ejemplares no encontrado');
+
+            return redirect(route('ejemplares.index'));
+        }
+
+        $this->ejemplaresRepository->delete($id);
+
+        Flash::success('Ejemplares borrado correctamente.');
+        Alert::success('Ejemplares borrado correctamente.');
+
+        return redirect(route('ejemplares.index'));
+    }
+}
