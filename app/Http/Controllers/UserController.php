@@ -73,7 +73,7 @@ class UserController extends Controller
         $user = User::create($input);
         //dd($request);
 
-        if( !empty($request->$input['roles']) )
+        if( !empty($request->input('roles')) )
         {
             $user->assignRole($request->input('roles'));
         }

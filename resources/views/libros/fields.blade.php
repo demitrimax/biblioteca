@@ -1,3 +1,8 @@
+@section('css')
+<link href="{{asset('select2/dist/css/select2.min.css')}}" rel="stylesheet" />
+<!-- iCheck for checkboxes and radio inputs -->
+ <link rel="stylesheet" href="{{asset('iCheck/skins/all.css')}}">
+@endsection
   @php
     $fecha = null;
     $hoy = date('Y-m-d');
@@ -22,13 +27,13 @@
 <!-- Autor Id Field -->
 <div class="form-group">
     {!! Form::label('autor_id', 'Autor:') !!}
-    {!! Form::select('autor_id', $autores, null, ['class' => 'form-control select2']) !!}
+    {!! Form::select('autor_id', $autores, null, ['class' => 'form-control select2', 'placeholder'=>'Seleccione un autor']) !!}
 </div>
 
 <!-- Genero Id Field -->
 <div class="form-group">
     {!! Form::label('genero_id', 'Género:') !!}
-    {!! Form::select('genero_id', $generos,null, ['class' => 'form-control']) !!}
+    {!! Form::select('genero_id', $generos,null, ['class' => 'form-control select2', 'placeholder'=>'Seleccione un Género']) !!}
 </div>
 
 <!-- Anioedit Field -->
@@ -105,5 +110,14 @@
     $('.form-file-multiple .btn').on('focusout', function() {
       $(this).parent().siblings().trigger('focusout');
     });
+
+  </script>
+  <script src="{{asset('select2/dist/js/select2.full.min.js')}}"></script>
+  <!-- iCheck 1.0.1 -->
+  <script src="{{asset('iCheck/icheck.min.js')}}"></script>
+  <script>
+  $(document).ready(function() {
+      $('.select2').select2();
+  });
   </script>
 @endsection

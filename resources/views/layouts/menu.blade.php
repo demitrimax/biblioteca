@@ -1,4 +1,9 @@
 <ul class="navbar-nav ml-auto">
+  @auth
+  <li class="nav-item">
+      <a class="nav-link" href="{{ route('home') }}">Home</a>
+  </li>
+  @endauth
   <li class="dropdown nav-item">
     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
       <i class="material-icons">apps</i> Menú

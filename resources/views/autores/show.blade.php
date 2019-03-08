@@ -25,7 +25,7 @@
             <h2>Biografía</h2>
             <h4>{{$autores->bio}}</h4>
             <br>
-
+            <a class="btn btn-primary" href="{{url('autores/'.$autores->id.'/edit/')}}">Editar<div class="ripple-container"></div></a>
           </div>
 
 

@@ -21,22 +21,23 @@
         <h2>Libros</h2>
       </div>
       <br>
+
+    <div class="row">
     @foreach($libros as $key=>$libro)
-    @if ($key%4==0)
-      <div class="row">
-        @endif
-        <div class="col-sm-2 ml-auto">
+
+        <div class="col-sm-3 sm-auto">
+          <a href="{{ route('libros.show', [$libro->id]) }}">
           <h4>{{$libro->nombre}}</h4>
           <img src="{{$libro->imgportada}}" alt="Rounded Image" class="rounded img-fluid" width="120">
+          <a>
         </div>
-        @endforeach
-      </div>
-
+    @endforeach
     </div>
-
+    <br>
       @can('libros-create')
       <a href="{{route('libros.create')}}" class="btn btn-primary btn-round">Alta de Libro</a>
       @endcan
   </div>
+</div>
 </div>
 @endsection
