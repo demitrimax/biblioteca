@@ -15,6 +15,7 @@ use Response;
 use App\Models\editoriales;
 use App\Models\autores;
 use App\Models\genero;
+use App\Models\libros;
 
 class librosController extends AppBaseController
 {

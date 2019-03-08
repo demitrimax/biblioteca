@@ -29,6 +29,9 @@
             <button class="btn btn-primary">Agregar al carrito<div class="ripple-container"></div></button>
             <a class="btn btn-primary" href="{{url('libros/'.$libros->id.'/edit/')}}">Editar<div class="ripple-container"></div></a>
             <a class="btn btn-primary" href="{{url('libros/')}}">Regresar<div class="ripple-container"></div></a>
+            @can('ejemplares-create')
+            <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#ejemplares">Agregar Ejemplares<div class="ripple-container"></div></a>
+            @endcan
           </div>
 
 
@@ -55,4 +58,25 @@
       </div>
     </div>
   </div>
+@can('ejemplares-create')
+  <!-- Modal -->
+  <div class="modal fade" id="ejemplares" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"Agregar Ejemplares</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          @include('libros.fields0')
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endcan
 @endsection
