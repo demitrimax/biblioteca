@@ -3,7 +3,11 @@
 @section('title',config('app.name').' | Rol '.$role->name )
 
 @section('content')
-<section class="content">
+@include('user.pheader')
+<div class="main main-raised">
+  <div class="section section-basic">
+
+<section class="container">
       <div class="row">
         <!-- left column -->
         <div class="col-md-12">
@@ -23,7 +27,7 @@
             <!-- /.box-header -->
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Name:</strong>
+                        <strong>Nombre:</strong>
                         {{ $role->name }}
                     </div>
                 </div>
@@ -52,6 +56,8 @@
 
       </div>
       <!-- /.row -->
+    </div>
+  </div>
 
 
 

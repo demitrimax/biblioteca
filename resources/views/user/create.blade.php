@@ -1,6 +1,10 @@
 @extends('layouts.app')
-
-
+@section('title',config('app.name').' | Alta de Usuario' )
+@section('css')
+<link href="{{asset('select2/dist/css/select2.min.css')}}" rel="stylesheet" />
+<!-- iCheck for checkboxes and radio inputs -->
+ <link rel="stylesheet" href="{{asset('iCheck/skins/all.css')}}">
+@endsection
 @section('content')
 @include('user.pheader')
 <div class="main main-raised">
@@ -58,7 +62,7 @@
                   <div class="col-xs-12 col-sm-12 col-md-12">
                       <div class="form-group">
                           <strong>Role:</strong>
-                          {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
+                          {!! Form::select('roles[]', $roles,[], array('class' => 'form-control select2','multiple')) !!}
                       </div>
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -77,13 +81,16 @@
 </div>
 </div>
 
-
-
-
-
-
-
-
+@section('scripts')
+<script src="{{asset('select2/dist/js/select2.full.min.js')}}"></script>
+<!-- iCheck 1.0.1 -->
+<script src="{{asset('iCheck/icheck.min.js')}}"></script>
+<script>
+$(document).ready(function() {
+    $('.select2').select2();
+});
+</script>
+@endsection
 
 
 @endsection

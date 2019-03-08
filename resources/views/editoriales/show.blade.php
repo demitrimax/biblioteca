@@ -6,11 +6,18 @@
 <div class="main main-raised">
   <div class="section section-basic">
   <div class="container">
-    <section class="content-header">
-        <h1>
-            Editoriales
-        </h1>
-    </section>
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2> Editoriales</h2>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('editoriales.index') }}"> Regresar</a>
+            </div>
+        </div>
+    </div>
+
+
     <div class="content">
         <div class="box box-primary">
             <div class="box-body">

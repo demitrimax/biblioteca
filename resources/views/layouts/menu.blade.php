@@ -52,10 +52,10 @@
               <a href="{!! route('user.index') !!}" class="dropdown-item"><i class="material-icons">person</i><span>Usuarios</span></a>
               @endcan
               @can('role-list')
-              <a href="{!! route('roles.index') !!}" class="dropdown-item"><i class="material-icons">person</i><span>Roles</span></a>
+              <a href="{!! route('roles.index') !!}" class="dropdown-item"><i class="material-icons">settings_input_composite</i><span>Roles</span></a>
               @endcan
               @can('permission-list')
-              <a href="{!! route('permissions.index') !!}" class="dropdown-item"><i class="material-icons">person</i><span>Permisos</span></a>
+              <a href="{!! route('permissions.index') !!}" class="dropdown-item"><i class="material-icons">thumbs_up_down</i><span>Permisos</span></a>
               @endcan
           </div>
 

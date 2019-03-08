@@ -20,9 +20,14 @@
             <td>
                 {!! Form::open(['route' => ['libros.destroy', $libro->id], 'method' => 'delete', 'id'=>'form'.$libro->id]) !!}
                 <div class='btn-group'>
+
                     <a href="{!! route('libros.show', [$libro->id]) !!}" class='btn btn-info btn-xs' data-toggle="tooltip" data-placement="top" title data-container="body" data-original-title="Ver detalles"><i class="material-icons">visibility</i></a>
+                    @can('libros-edit')
                     <a href="{!! route('libros.edit', [$libro->id]) !!}" class='btn btn-primary btn-xs' data-toggle="tooltip" data-placement="top" title data-container="body" data-original-title="Editar"><i class="material-icons">create</i></a>
+                    @endcan
+                    @can('libros-delete')
                     {!! Form::button('<i class="material-icons">delete</i>', ['type' => 'button', 'class' => 'btn btn-danger btn-xs', 'onclick' => "ConfirmDelete(".$libro->id.")"]) !!}
+                    @endcan
                 </div>
                 {!! Form::close() !!}
             </td>

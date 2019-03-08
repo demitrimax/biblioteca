@@ -15,6 +15,16 @@ class UserController extends Controller
 {
     //
     use HasRoles;
+
+    function __construct()
+    {
+         $this->middleware(['auth']);
+         $this->middleware('permission:user-list');
+         $this->middleware('permission:user-create', ['only' => ['create','store']]);
+         $this->middleware('permission:user-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -61,13 +71,15 @@ class UserController extends Controller
 
 
         $user = User::create($input);
-        if($request->$input('roles'))
+        //dd($request);
+
+        if( !empty($request->$input['roles']) )
         {
             $user->assignRole($request->input('roles'));
         }
         $sweet = 'Usuario creado correctamente';
 
-        return redirect()->route('users.index')
+        return redirect()->route('user.index')
                         ->with(compact('sweet'));
     }
 
@@ -149,7 +161,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
-        return redirect()->route('users.index')
+        return redirect()->route('user.index')
                         ->with('success','User deleted successfully');
     }
 }

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('generos.pheader')
 <div class="main main-raised">
   <div class="section section-basic">
   <div class="container">
