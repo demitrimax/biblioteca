@@ -29,6 +29,7 @@ Route::resource('generos', 'generoController');
 Route::resource('user','UserController');
 Route::resource('roles','RoleController');
 Route::resource('permissions', 'PermissionController');
+Route::resource('prestamos', 'prestamosController');
 
 Route::get('/GetMunicipios/{id}','clientesController@GetMunicipios');
 

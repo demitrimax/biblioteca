@@ -3,6 +3,9 @@
   <li class="nav-item">
       <a class="nav-link" href="{{ route('home') }}">Home</a>
   </li>
+  <li class="nav-item">
+      <a class="nav-link" href="{{ route('prestamos.index') }}">Préstamos</a>
+  </li>
   @endauth
   <li class="dropdown nav-item">
     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">

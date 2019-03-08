@@ -21,7 +21,7 @@ if(isset($libro->numeje))
 <!-- Numeje Field -->
 <div class="form-group">
     {!! Form::label('numeje', 'Número de Ejemplar:') !!}
-    {!! Form::text('numeje', $mialeatorio, ['class' => 'form-control', 'maxlength'=>'10']) !!}
+    {!! Form::text('numeje', $mialeatorio, ['class' => 'form-control', 'maxlength'=>'15']) !!}
 </div>
 
 

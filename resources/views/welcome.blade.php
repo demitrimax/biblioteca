@@ -9,8 +9,8 @@
           <h1 class="title">Sistema Biblioteca</h1>
           <h4>Aplicativo para el control y seguimiento de Biblioteca</h4>
           <br>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
-            <i class="fa fa-play"></i> PRESTAMOS
+          <a href="{{route('prestamos.index')}}" class="btn btn-danger btn-raised btn-lg">
+            <i class="fa fa-book"></i> PRÉSTAMOS
           </a>
         </div>
       </div>
