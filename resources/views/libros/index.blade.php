@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title',config('app.name').' | Lista de Libros' )
 
 @section('content')
   @include('libros.pheader')

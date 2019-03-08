@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title',config('app.name').' | Alta de Libros' )
 @section('content')
   @include('libros.pheader')
   <div class="main main-raised">
