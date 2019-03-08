@@ -12,6 +12,7 @@ use Alert;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\libros;
+use App\Models\ejemplares;
 
 class ejemplaresController extends AppBaseController
 {
@@ -166,5 +167,11 @@ class ejemplaresController extends AppBaseController
         Alert::success('Ejemplares borrado correctamente.');
 
         return redirect(route('ejemplares.index'));
+    }
+
+    public function GetEjemplares($id)
+    {
+      $ejemplares = ejemplares::where('libro_id',$id)->select('id','numeje')->get();
+      return $ejemplares;
     }
 }

@@ -42,5 +42,18 @@
   $(document).ready(function() {
       $('.select2').select2();
   });
+  $('#libro').on('change', function(e) {
+    //console.log(e);
+    var libro_id = e.target.value;
+    //ajax
+    $.get('{{url('/')}}/GetEjemplares/'+libro_id, function(data) {
+      //exito al obtener los datos
+      //console.log(data);
+      $('#ejemplar').empty();
+      $.each(data, function(index, ejemplares) {
+        $('#ejemplar').append('<option value ="' + ejemplares.id + '">'+ejemplares.numeje+'</option>' );
+      });
+    });
+  });
   </script>
 @endsection
