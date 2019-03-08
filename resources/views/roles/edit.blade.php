@@ -12,16 +12,19 @@
         </ul>
     </div>
 @endif
-<section class="content">
+@include('user.pheader')
+<div class="main main-raised">
+  <div class="section section-basic">
+<section class="container">
       <div class="row">
         <!-- left column -->
         <div class="col-md-12">
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Edit Role</h3>
+              <h3 class="box-title">Editar Rol</h3>
               <div class="pull-right">
-                  <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
+                  <a class="btn btn-primary" href="{{ route('roles.index') }}"> Regresar</a>
               </div>
             </div>
             @if ($message = Session::get('success'))
@@ -34,7 +37,7 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Name:</strong>
+                        <strong>Nombre:</strong>
                         {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
                     </div>
                 </div>
@@ -50,7 +53,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             {!! Form::close() !!}
               <!-- /.box-body -->
@@ -66,6 +69,8 @@
 
       </div>
       <!-- /.row -->
+    </div>
+  </div>
 
 
 @endsection

@@ -3,15 +3,18 @@
 @section('title',config('app.name').' | Administración de Roles' )
 
 @section('content')
+@include('user.pheader')
+<div class="main main-raised">
+  <div class="section section-basic">
 
-<section class="content">
+<section class="container">
       <div class="row">
         <!-- left column -->
         <div class="col-md-12">
           <!-- general form elements -->
           <div class="box box-primary table-responsive no-padding">
             <div class="box-header with-border">
-              <h3 class="box-title">Role Management</h3>
+              <h3 class="box-title">Administración de Roles</h3>
               <div class="pull-right">
                 @can('role-create')
                     <a class="btn btn-success" href="{{ route('roles.create') }}"> Alta de Nuevo Rol</a>
@@ -28,7 +31,7 @@
               <tr>
                  <th>No</th>
                  <th>Name</th>
-                 <th width="280px">Action</th>
+                 <th width="280px">Acciones</th>
               </tr>
                 @foreach ($roles as $key => $role)
                 <tr>
@@ -63,5 +66,7 @@
 
       </div>
       <!-- /.row -->
+    </div>
+  </div>
 
 @endsection
