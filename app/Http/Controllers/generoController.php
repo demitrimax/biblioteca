@@ -20,6 +20,11 @@ class generoController extends AppBaseController
     public function __construct(generoRepository $generoRepo)
     {
         $this->generoRepository = $generoRepo;
+        $this->middleware(['auth']);
+        $this->middleware('permission:generos-list');
+        $this->middleware('permission:generos-create', ['only' => ['create','store']]);
+        $this->middleware('permission:generos-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:generos-delete', ['only' => ['destroy']]);
     }
 
     /**

@@ -24,6 +24,11 @@ class librosController extends AppBaseController
     public function __construct(librosRepository $librosRepo)
     {
         $this->librosRepository = $librosRepo;
+        $this->middleware(['auth']);
+        $this->middleware('permission:libros-list');
+        $this->middleware('permission:libros-create', ['only' => ['create','store']]);
+        $this->middleware('permission:libros-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:libros-delete', ['only' => ['destroy']]);
     }
 
     /**

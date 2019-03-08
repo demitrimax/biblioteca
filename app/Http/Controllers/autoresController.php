@@ -21,6 +21,11 @@ class autoresController extends AppBaseController
     public function __construct(autoresRepository $autoresRepo)
     {
         $this->autoresRepository = $autoresRepo;
+        $this->middleware(['auth']);
+        $this->middleware('permission:autores-list');
+        $this->middleware('permission:autores-create', ['only' => ['create','store']]);
+        $this->middleware('permission:autores-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:autores-delete', ['only' => ['destroy']]);
     }
 
     /**

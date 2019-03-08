@@ -10,7 +10,9 @@
     <section class="content-header">
         <h1 class="pull-left">Libros</h1>
         <h1 class="pull-right">
+          @can('libros-create')
            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('libros.create') !!}">Alta de Libro</a>
+          @endcan
         </h1>
     </section>
     <div class="content">

@@ -20,6 +20,11 @@ class editorialesController extends AppBaseController
     public function __construct(editorialesRepository $editorialesRepo)
     {
         $this->editorialesRepository = $editorialesRepo;
+        $this->middleware(['auth']);
+        $this->middleware('permission:editoriales-list');
+        $this->middleware('permission:editoriales-create', ['only' => ['create','store']]);
+        $this->middleware('permission:editoriales-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:editoriales-delete', ['only' => ['destroy']]);
     }
 
     /**
