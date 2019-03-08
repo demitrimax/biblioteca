@@ -91,6 +91,11 @@ class libros extends Model
     {
         return $this->belongsTo(\App\Models\genero::class);
     }
+
+    public function ejemplares()
+    {
+      return $this->hasMany('App\Models\ejemplares','libro_id');
+    }
     public function getImgportadaAttribute()
     {
       $portada = 'portadas/Sinportada.png';

@@ -21,6 +21,11 @@ class ejemplaresController extends AppBaseController
     public function __construct(ejemplaresRepository $ejemplaresRepo)
     {
         $this->ejemplaresRepository = $ejemplaresRepo;
+        $this->middleware(['auth']);
+        $this->middleware('permission:ejemplares-list');
+        $this->middleware('permission:ejemplares-create', ['only' => ['create','store']]);
+        $this->middleware('permission:ejemplares-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:ejemplares-delete', ['only' => ['destroy']]);
     }
 
     /**

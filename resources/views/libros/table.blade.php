@@ -6,17 +6,19 @@
         <th>Autor</th>
         <th>Género</th>
         <th>Año</th>
+        <th>Ejemplares</th>
         <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
     @foreach($libros as $libro)
         <tr>
-            <td>{!! $libro->nombre !!}</td>
+            <td><a href="{!! route('libros.show', [$libro->id]) !!}">{!! $libro->nombre !!}</a></td>
             <td>{!! $libro->editorial->nombre !!}</td>
             <td>{!! $libro->autor->nombre !!}</td>
             <td>{!! $libro->genero->nombre !!}</td>
             <td>{!! date('Y', strtotime($libro->anioedit)) !!}</td>
+            <td>{!! $libro->ejemplares->count() !!}</td>
             <td>
                 {!! Form::open(['route' => ['libros.destroy', $libro->id], 'method' => 'delete', 'id'=>'form'.$libro->id]) !!}
                 <div class='btn-group'>
@@ -35,6 +37,7 @@
     @endforeach
     </tbody>
 </table>
+{{$libros->links()}}
 @section('scripts')
 <script>
 function ConfirmDelete(id) {
