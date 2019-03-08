@@ -12,7 +12,7 @@ use App\Models\clientes;
 class prestamosController extends Controller
 {
     //
-    public function __construct(librosRepository $librosRepo)
+    public function __construct()
     {
         $this->middleware(['auth']);
         $this->middleware('permission:prestamos-list');
