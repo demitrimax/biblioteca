@@ -45,12 +45,12 @@
       <nav class="float-left">
         <ul>
           <li>
-            <a href="https://www.creative-tim.com">
+            <a href="{{route('home')}}">
               Prestamos
             </a>
           </li>
           <li>
-            <a href="https://creative-tim.com/presentation">
+            <a href="{{route('home')}}">
               Libros
             </a>
           </li>
