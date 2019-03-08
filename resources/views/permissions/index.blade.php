@@ -4,11 +4,14 @@
 
 @section('css')
 <!-- DataTables -->
-<link rel="stylesheet" href="{{asset('adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 @endsection
 
 @section('content')
-<section class="content">
+@include('user.pheader')
+<div class="main main-raised">
+  <div class="section section-basic">
+<section class="container">
       <div class="row">
         <!-- left column -->
         <div class="col-md-12">
@@ -28,7 +31,7 @@
             @endif
             <!-- /.box-header -->
             <div class="table-responsive no-padding">
-                <table class="table table-bordered table-striped" id="permisos-table">
+                <table class="table" id="permisos-table">
                     <thead>
                         <tr>
                             <th>Permiso</th>
@@ -65,18 +68,22 @@
 
       </div>
       <!-- /.row -->
+    </div>
+  </div>
 @endsection
 @section('scripts')
 <!-- DataTables -->
-<script src="{{asset('adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>
+/* Deshabilitar el dataTables tiene problemas
   $(function () {
     $('#permisos-table').DataTable({
       "language": {
-                "url": "{{asset('adminlte/bower_components/datatables.net/Spanish.json')}}"
+                "url": "{{asset('datatables.net/Spanish.json')}}"
             }
     })
   })
+  */
 </script>
 @endsection

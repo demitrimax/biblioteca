@@ -3,6 +3,10 @@
 @section('title',config('app.name').' | Editar Permisos' )
 
 @section('content')
+@include('user.pheader')
+<div class="main main-raised">
+  <div class="section section-basic">
+<section class="container">
 
 <div class='col-lg-4 col-lg-offset-4'>
 
@@ -19,6 +23,9 @@
 
     {{ Form::close() }}
 
+</div>
+</section>
+</div>
 </div>
 
 @endsection
