@@ -39,9 +39,10 @@ class ejemplaresController extends AppBaseController
     {
         $this->ejemplaresRepository->pushCriteria(new RequestCriteria($request));
         $ejemplares = $this->ejemplaresRepository->all();
-
+        $libros = libros::has('ejemplares')->orderBy('nombre','ASC')->paginate(10);
+        //dd($libros);
         return view('ejemplares.index')
-            ->with('ejemplares', $ejemplares);
+            ->with(compact('ejemplares','libros'));
     }
 
     /**

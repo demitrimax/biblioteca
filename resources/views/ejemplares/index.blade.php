@@ -15,7 +15,7 @@
           @endcan
         </h1>
     </section>
-    <div class="content">
+    <div class="container">
         <div class="clearfix"></div>
 
         @include('flash::message')
@@ -23,7 +23,7 @@
         <div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
-                    @include('ejemplares.table')
+                    @include('ejemplares.table_book')
             </div>
         </div>
         <div class="text-center">
