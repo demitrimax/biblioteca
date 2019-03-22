@@ -37,6 +37,7 @@ Route::get('/GetEjemplares/{id}','ejemplaresController@GetEjemplares');
 Route::post('carrito/guardar', 'ejemplaresController@guardacarrito');
 Route::post('carrito/eliminar/{id}', 'ejemplaresController@eliminardelcarrito');
 Route::post('carrito/asignar', 'prestamosController@asignar');
+Route::get('carrito/devolver/{id}', 'prestamosController@devolver');
 
 
 Route::resource('ejemplares', 'ejemplaresController');

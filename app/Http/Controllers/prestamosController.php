@@ -71,4 +71,22 @@ class prestamosController extends Controller
 
       return back();
     }
+
+    public function devolver($id)
+    {
+      $carrito = carrito::find($id);
+      if (!empty($carrito))
+      {
+        $carrito->estatus = 2;
+        $carrito->save();
+        $carrito->delete();
+        Alert::success('Libro devuelto correctamente');
+      }
+      else
+      {
+        Alert::error('Libro no encontrado para devolución');
+      }
+
+      return back();
+    }
 }

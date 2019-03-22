@@ -15,7 +15,9 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('clientes.show_fields')
+                    <br>
                     <a href="{!! route('clientes.index') !!}" class="btn btn-default">Regresar</a>
+                    @include('clientes.tableprestamos')
                 </div>
             </div>
         </div>
