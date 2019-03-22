@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $libros = libros::paginate(20);
+      $libros = libros::orderBy('nombre')->paginate(20);
         return view('home')->with(compact('libros'));
     }
 

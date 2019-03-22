@@ -50,6 +50,9 @@
                 @endforeach
               </tbody>
             </table>
+            @else
+            <p><span class="badge badge-pill badge-warning">No existen ejemplares disponibles.</span></p>
+
             @endif
 
             <a class="btn btn-primary" href="{{url('libros/'.$libros->id.'/edit/')}}">Editar<div class="ripple-container"></div></a>
@@ -94,11 +97,14 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+          {!! Form::open(['route' => 'ejemplares.store']) !!}
         <div class="modal-body">
+
           @include('libros.fields0')
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Agregar</button>
+          {!! Form::close() !!}
         </div>
       </div>
     </div>

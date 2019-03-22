@@ -74,6 +74,11 @@ class ejemplaresController extends AppBaseController
         Flash::success('Ejemplares guardado correctamente.');
         Alert::success('Ejemplares guardado correctamente.');
 
+        if (isset($input['redirect']))
+        {
+          return redirect(route($input['redirect'],$input['libro_id']));
+        }
+
         return redirect(route('ejemplares.index'));
     }
 

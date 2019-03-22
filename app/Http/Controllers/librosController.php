@@ -42,7 +42,7 @@ class librosController extends AppBaseController
     public function index(Request $request)
     {
         $this->librosRepository->pushCriteria(new RequestCriteria($request));
-        $libros = $this->librosRepository->paginate(10);
+        $libros = $this->librosRepository->orderBy('nombre')->paginate(10);
 
         return view('libros.index')
             ->with('libros', $libros);

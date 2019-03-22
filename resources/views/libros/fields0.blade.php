@@ -23,6 +23,7 @@ if(isset($libro->numeje))
     {!! Form::label('numeje', 'Número de Ejemplar:') !!}
     {!! Form::text('numeje', $mialeatorio, ['class' => 'form-control', 'maxlength'=>'15']) !!}
 </div>
+{!! Form::hidden('redirect','libros.show' )!!}
 
 
 @section('scripts')

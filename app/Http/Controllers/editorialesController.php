@@ -36,7 +36,7 @@ class editorialesController extends AppBaseController
     public function index(Request $request)
     {
         $this->editorialesRepository->pushCriteria(new RequestCriteria($request));
-        $editoriales = $this->editorialesRepository->paginate(10);
+        $editoriales = $this->editorialesRepository->orderBy('nombre')->paginate(10);
 
         return view('editoriales.index')
             ->with('editoriales', $editoriales);
