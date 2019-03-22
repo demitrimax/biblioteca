@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\ejemplares;
 
 /**
  * Class libros
@@ -103,5 +104,16 @@ class libros extends Model
         $portada = $this->portadaimg;
       }
       return $portada;
+    }
+
+    public function getEjemdisponiblesAttribute()
+    {
+
+      $ejemplaresdisp = ejemplares::where('libro_id',$this->id)
+                              ->whereNOTIn('id',function($query){
+                                  $query->select('ejemplar_id')->from('carrito')->where('deleted_at',null);
+                                  })
+                                ->get();
+      return $ejemplaresdisp;
     }
 }

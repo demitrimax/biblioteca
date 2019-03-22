@@ -130,7 +130,7 @@ class librosController extends AppBaseController
         //Storage::setVisibility($libros->portadaimg, 'public');
         $ejemplares = ejemplares::where('libro_id',$id)
                                 ->whereNOTIn('id',function($query){
-                                    $query->select('ejemplar_id')->from('carrito');
+                                    $query->select('ejemplar_id')->from('carrito')->where('deleted_at',null);
                                     })
                                   ->get();
         return view('libros.show')->with(compact('libros','ejemplares'));

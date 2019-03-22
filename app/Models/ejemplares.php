@@ -5,6 +5,7 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 /**
  * Class ejemplares
  * @package App\Models
@@ -60,4 +61,5 @@ class ejemplares extends Model
     {
         return $this->belongsTo('App\Models\libros', 'libro_id');
     }
+
 }

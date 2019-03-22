@@ -18,7 +18,7 @@
             <td>{!! $libro->autor->nombre !!}</td>
             <td>{!! $libro->genero->nombre !!}</td>
             <td>{!! date('Y', strtotime($libro->anioedit)) !!}</td>
-            <td>{!! $libro->ejemplares->count() !!}</td>
+            <td>{!! $libro->ejemplares->count() !!}({!! $libro->ejemdisponibles->count() !!})</td>
             <td>
                 {!! Form::open(['route' => ['libros.destroy', $libro->id], 'method' => 'delete', 'id'=>'form'.$libro->id]) !!}
                 <div class='btn-group'>
