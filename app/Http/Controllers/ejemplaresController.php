@@ -13,6 +13,8 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\libros;
 use App\Models\ejemplares;
+use App\Models\carrito;
+use Auth;
 
 class ejemplaresController extends AppBaseController
 {
@@ -174,5 +176,36 @@ class ejemplaresController extends AppBaseController
     {
       $ejemplares = ejemplares::where('libro_id',$id)->select('id','numeje')->get();
       return $ejemplares;
+    }
+
+    public function guardacarrito(Request $request)
+    {
+      //dd($request);
+      $rules = [
+        'ejemplar'   => 'required',
+        'cliente'    => 'required',
+      ];
+
+      $messages = [
+          'ejemplar.required'    => 'El ejemplar es requerido',
+          'cliente.required'     => 'El Cliente es requerido',
+
+      ];
+
+      $this->validate($request, $rules, $messages);
+
+
+        $input = $request->all();
+
+
+
+        $carrito = new carrito();
+        $carrito->user_id = Auth::user()->id;
+        $carrito->ejemplar_id = $input['ejemplar'];
+        $carrito->cliente_id = $input['cliente'];
+        $carrito->fecha = date('Y-m-d');
+        $carrito->save();
+
+        return back();
     }
 }

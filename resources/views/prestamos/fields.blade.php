@@ -6,12 +6,13 @@
 
 <div class="row">
       <div class="col-lg-6 col-md-4">
+        {!! Form::open(['url' => 'carrito/guardar']) !!}
         <div class="title">
           <h3>Datos del Préstamo</h3>
         </div>
         <div class="form-group">
             {!! Form::label('cliente', 'Cliente:') !!}
-            {!! Form::select('cliente', $clientes, null, ['class' => 'form-control select2']) !!}
+            {!! Form::select('cliente', $clientes, null, ['class' => 'form-control select2', 'placeholder'=>'Seleccione el Cliente']) !!}
         </div>
       </div>
 
@@ -21,16 +22,30 @@
         </div>
         <div class="form-group">
             {!! Form::label('libro', 'Libro:') !!}
-            {!! Form::select('libro', $libros, null, ['class' => 'form-control select2']) !!}
+            {!! Form::select('libro', $libros, null, ['class' => 'form-control select2', 'placeholder'=>'Seleccione un libro']) !!}
         </div>
 
         <div class="form-group">
             {!! Form::label('ejemplar', 'Ejemplar:') !!}
             {!! Form::select('ejemplar', [], null, ['class' => 'form-control select2']) !!}
         </div>
+        <button class="btn btn-primary btn-round">Agregar<div class="ripple-container"></div></button>
+
+    {!! Form::close() !!}
+
+        <p class="text-info">
+                Puede tambien capturar el número de ejemplar</p>
+
+      <div class="form-group">
+          {!! Form::label('ejemplar', 'Ejemplar Número:') !!}
+          {!! Form::text('ejemplar', null, ['class' => 'form-control']) !!}
+      </div>
+
+
       </div>
 
     </div>
+
 
 
 @section('scripts')

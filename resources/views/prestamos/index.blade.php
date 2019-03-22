@@ -6,6 +6,7 @@
 
   <div class="main main-raised">
         <div class="section section-basic">
+                  @include('adminlte-templates::common.errors')
     <div class="container">
 
     <section class="content-header">
