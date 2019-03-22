@@ -29,7 +29,46 @@ class prestamosController extends Controller
       $libros = $libros->pluck('nombre','id');
       $clientes = clientes::pluck('nombre','id');
       //$prestamos = carrito::where('cliente', )
-      $carrito = carrito::where('user_id',Auth::user()->id)->get();
+      $carrito = carrito::where('user_id',Auth::user()->id)
+                          ->where('estatus', null)
+                        ->get();
       return view('prestamos.index')->with(compact('libros','clientes','carrito'));
+    }
+
+    public function asignar(Request $request)
+    {
+
+      $rules = [
+        'cliente'   => 'required',
+      ];
+
+      $messages = [
+          'cliente.required'    => 'Seleccione un cliente.',
+
+      ];
+
+      $this->validate($request, $rules, $messages);
+
+      $input = $request->all();
+
+      $carrito = carrito::where('user_id',Auth::user()->id)
+                          ->where('estatus', null)
+                          ->get();
+      if($carrito->count()==0)
+      {
+        Alert::error('Carrito Vacio');
+        return back();
+      }
+      else {
+        foreach($carrito as $carr)
+        {
+          $carr->cliente_id = $input['cliente'];
+          $carr->estatus = 1;
+          $carr->save();
+        }
+        Alert::success('Prestamos Asignados');
+      }
+
+      return back();
     }
 }

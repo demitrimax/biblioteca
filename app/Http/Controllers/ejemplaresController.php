@@ -206,6 +206,7 @@ class ejemplaresController extends AppBaseController
         }
         $carrito->fecha = date('Y-m-d');
         $carrito->save();
+        Alert::success('Se agregó el ejemplar al carrito.');
 
         return back();
     }

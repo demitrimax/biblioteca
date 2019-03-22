@@ -71,5 +71,10 @@ class clientes extends Model
       return $this->belongsTo('App\municipios','municipio_id');
     }
 
+    public function carritos()
+    {
+      return $this->hasMany('App\Models\carrito', 'cliente_id');
+    }
+
 
 }

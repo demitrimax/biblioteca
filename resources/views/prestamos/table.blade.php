@@ -9,10 +9,12 @@
         <div class="title">
           <h3>Datos del Préstamo</h3>
         </div>
+        {!! Form::open(['url' => ['carrito/asignar'], 'id'=>'formasig' ]) !!}
         <div class="form-group">
             {!! Form::label('cliente', 'Cliente:') !!}
             {!! Form::select('cliente', $clientes, null, ['class' => 'form-control select2', 'placeholder'=>'Seleccione el Cliente', 'required']) !!}
         </div>
+        {!! Form::close()!!}
       </div>
     </div>
 <table class="table">
@@ -58,7 +60,7 @@
   </tbody>
 </table>
 <br>
-<button class="btn btn-primary btn-round">Asignar Prestamo <div class="ripple-container"></div></button>
+<button class="btn btn-primary btn-round" onclick="sendform()">Asignar Prestamo <div class="ripple-container"></div></button>
 
 @section('scripts')
 
@@ -69,5 +71,9 @@
   $(document).ready(function() {
       $('.select2').select2();
   });
+  function sendform()
+  {
+    document.forms['formasig'].submit();
+  }
   </script>
 @endsection

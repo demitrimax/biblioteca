@@ -5,6 +5,7 @@
           <th>Direccion</th>
           <th>Estado</th>
           <th>Municipio</th>
+          <th>Prestamos</th>
           <th>Acciones</th>
         </tr>
     </thead>
@@ -15,6 +16,7 @@
             <td>{!! $clientes->direccion !!}</td>
             <td>{!! $clientes->estado->nombre !!}</td>
             <td>{!! $clientes->municipio->nombre !!}</td>
+            <td>{!! $clientes->carritos->count() !!}</td>
             <td>
                 {!! Form::open(['route' => ['clientes.destroy', $clientes->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
