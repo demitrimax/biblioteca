@@ -35,6 +35,7 @@ Route::get('/GetMunicipios/{id}','clientesController@GetMunicipios');
 Route::get('/GetEjemplares/{id}','ejemplaresController@GetEjemplares');
 
 Route::post('carrito/guardar', 'ejemplaresController@guardacarrito');
+Route::post('carrito/eliminar/{id}', 'ejemplaresController@eliminardelcarrito');
 
 
 Route::resource('ejemplares', 'ejemplaresController');

@@ -8,7 +8,8 @@ Use Alert;
 use App\Models\prestamos;
 use App\Models\libros;
 use App\Models\clientes;
-use App\carrito;
+use App\Models\carrito;
+use Auth;
 
 class prestamosController extends Controller
 {
@@ -28,6 +29,7 @@ class prestamosController extends Controller
       $libros = $libros->pluck('nombre','id');
       $clientes = clientes::pluck('nombre','id');
       //$prestamos = carrito::where('cliente', )
-      return view('prestamos.index')->with(compact('libros','clientes'));
+      $carrito = carrito::where('user_id',Auth::user()->id)->get();
+      return view('prestamos.index')->with(compact('libros','clientes','carrito'));
     }
 }

@@ -16,6 +16,7 @@ use App\Models\editoriales;
 use App\Models\autores;
 use App\Models\genero;
 use App\Models\libros;
+use App\Models\ejemplares;
 
 class librosController extends AppBaseController
 {
@@ -127,7 +128,12 @@ class librosController extends AppBaseController
         }
 
         //Storage::setVisibility($libros->portadaimg, 'public');
-        return view('libros.show')->with(compact('libros'));
+        $ejemplares = ejemplares::where('libro_id',$id)
+                                ->whereNOTIn('id',function($query){
+                                    $query->select('ejemplar_id')->from('carrito');
+                                    })
+                                  ->get();
+        return view('libros.show')->with(compact('libros','ejemplares'));
     }
 
     /**

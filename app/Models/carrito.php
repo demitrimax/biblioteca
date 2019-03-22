@@ -37,4 +37,9 @@ class carrito extends Model
         'cliente_id'=> 'integer',
         'fecha' => 'date',
     ];
+
+    public function ejemplar()
+    {
+      return $this->belongsTo('App\Models\ejemplares','ejemplar_id');
+    }
 }

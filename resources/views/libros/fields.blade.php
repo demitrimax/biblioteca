@@ -2,6 +2,7 @@
 <link href="{{asset('select2/dist/css/select2.min.css')}}" rel="stylesheet" />
 <!-- iCheck for checkboxes and radio inputs -->
  <link rel="stylesheet" href="{{asset('iCheck/skins/all.css')}}">
+ <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 @endsection
   @php
     $fecha = null;
@@ -44,7 +45,7 @@
 
 <!-- Portadaimg Field -->
 <div class="form-group">
-    {!! Form::label('sinpsos', 'Sinopsis:') !!}
+    {!! Form::label('sinopsis', 'Sinopsis:') !!}
     {!! Form::textarea('sinopsis', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -119,5 +120,13 @@
   $(document).ready(function() {
       $('.select2').select2();
   });
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('sinopsis')
+    //bootstrap WYSIHTML5 - text editor
+    $('.textarea').wysihtml5()
+  });
   </script>
+
 @endsection

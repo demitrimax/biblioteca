@@ -20,7 +20,7 @@ class ejemplares extends Model
     use SoftDeletes;
 
     public $table = 'ejemplares';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -50,7 +50,7 @@ class ejemplares extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -58,6 +58,6 @@ class ejemplares extends Model
      **/
     public function libro()
     {
-        return $this->belongsTo(\App\Models\Libro::class);
+        return $this->belongsTo('App\Models\libros', 'libro_id');
     }
 }

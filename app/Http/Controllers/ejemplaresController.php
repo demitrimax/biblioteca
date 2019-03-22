@@ -183,12 +183,10 @@ class ejemplaresController extends AppBaseController
       //dd($request);
       $rules = [
         'ejemplar'   => 'required',
-        'cliente'    => 'required',
       ];
 
       $messages = [
           'ejemplar.required'    => 'El ejemplar es requerido',
-          'cliente.required'     => 'El Cliente es requerido',
 
       ];
 
@@ -202,10 +200,20 @@ class ejemplaresController extends AppBaseController
         $carrito = new carrito();
         $carrito->user_id = Auth::user()->id;
         $carrito->ejemplar_id = $input['ejemplar'];
-        $carrito->cliente_id = $input['cliente'];
+
+        if (isset($input['cliente'])) {
+            $carrito->cliente_id = $input['cliente'];
+        }
         $carrito->fecha = date('Y-m-d');
         $carrito->save();
 
         return back();
+    }
+    public function eliminardelcarrito($id)
+    {
+      $carrito = carrito::find($id);
+      $carrito->delete();
+      Alert::success('Elemento Eliminado');
+      return back();
     }
 }

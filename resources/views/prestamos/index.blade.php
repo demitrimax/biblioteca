@@ -23,7 +23,7 @@
         <div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
-              @include('prestamos.fields')
+              @include('prestamos.table')
             </div>
         </div>
         <div class="text-center">

@@ -24,9 +24,34 @@
         </div>
         <div class="col-md-8 ml-auto mr-auto">
             <h2>Sinópsis</h2>
-            <h4>{{$libros->sinopsis}}</h4>
+            <h4>{!! $libros->sinopsis !!}</h4>
             <br>
-            <button class="btn btn-primary">Agregar al carrito<div class="ripple-container"></div></button>
+            @if($ejemplares->count()>0)
+            <table class="table">
+              <thead>
+                <tr>
+                  <td>Ejemplares</td>
+                  <td>Acciones</td>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($ejemplares as $ejemplar)
+                <tr>
+                  <td>
+                    {{$ejemplar->numeje}}
+                  </td>
+                  <td>
+                    {!! Form::open(['url' => 'carrito/guardar']) !!}
+                      {!! Form::hidden('ejemplar', $ejemplar->id)!!}
+                      <button type="submit" class="btn btn-primary">Agregar al carrito<div class="ripple-container"></div></button>
+                    {!! Form::close() !!}
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            @endif
+
             <a class="btn btn-primary" href="{{url('libros/'.$libros->id.'/edit/')}}">Editar<div class="ripple-container"></div></a>
             <a class="btn btn-primary" href="{{url('libros/')}}">Regresar<div class="ripple-container"></div></a>
             @can('ejemplares-create')
