@@ -55,9 +55,9 @@ class librosController extends AppBaseController
      */
     public function create()
     {
-        $editoriales = editoriales::pluck('nombre','id');
-        $autores = autores::pluck('nombre','id');
-        $generos = genero::pluck('nombre','id');
+        $editoriales = editoriales::orderBy('nombre')->pluck('nombre','id');
+        $autores = autores::orderBy('nombre')->pluck('nombre','id');
+        $generos = genero::orderBy('nombre')->pluck('nombre','id');
         return view('libros.create')->with(compact('editoriales','autores','generos'));
     }
 
